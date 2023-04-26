@@ -1,0 +1,15 @@
+.input {
+  height: 40px;
+  background-color: transparent;
+  color: #000;
+  padding: 10px;
+  font-size: 20px;
+  position: relative;
+  border-bottom: 2px solid grey;
+  width: 400px;
+}
+.input:focus {
+  /* з використання аутлайну та додаванням бордер-радіусу робиться аутлайн заокруглений */
+  outline: 1px solid #beb8b8;
+  border-radius: 10px;
+}

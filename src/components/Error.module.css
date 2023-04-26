@@ -1,0 +1,11 @@
+.image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.image {
+  width: 300px;
+}
+.error-title {
+  margin-bottom: 50px;
+  text-align: center;
+}
