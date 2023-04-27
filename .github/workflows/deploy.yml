@@ -19,7 +19,7 @@ jobs:
 
       - name: Build the app
         env: 
-          VITE_SECRET_KEY: ${{ secrets.VITE_SECRET_KEY }}
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
         run: npm run build
         
       - name: Deploy 🚀
