@@ -4,7 +4,7 @@ const Button = function ({ onHandleClick }) {
     <button className={styles['search-button']}>
       <img
         className={styles['search-icon']}
-        src="../../images/icons/search-icon.png"
+        src="../../public/images/icons/search-icon.png"
         alt="Search icon"
       />
     </button>

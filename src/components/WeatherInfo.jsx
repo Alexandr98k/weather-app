@@ -134,7 +134,7 @@ const WeatherInfo = function ({ weatherData }) {
       <div className={styles['image-container']}>
         <img
           className={styles.image}
-          src={`../images/${imagePath}`}
+          src={`../../public/images/${imagePath}`}
           alt="Weather image"
           width="300px"
           height="270px"
@@ -148,12 +148,16 @@ const WeatherInfo = function ({ weatherData }) {
       </div>
       <div className={styles['additional-info']}>
         <div className={styles['info-item']}>
-          <img className={styles['info-image']} src="../images/icons/humidity.png" alt="" />
+          <img
+            className={styles['info-image']}
+            src="../../public/images/icons/humidity.png"
+            alt=""
+          />
           <p className={styles['info-stats']}>{humid}%</p>
           <p className={styles['info-text']}>Humidity</p>
         </div>
         <div className={styles['info-item']}>
-          <img className={styles['info-image']} src="../images/icons/wind.png" alt="" />
+          <img className={styles['info-image']} src="../../public/images/icons/wind.png" alt="" />
           <p className={styles['info-stats']}>{wind} m/s</p>
           <p className={styles['info-text']}>Wind Speed</p>
         </div>
