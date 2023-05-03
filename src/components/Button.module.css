@@ -16,3 +16,13 @@
 .search-button:hover {
   background-color: rgb(126, 126, 214);
 }
+@media (max-width: 500px) {
+  .search-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .search-icon {
+    width: 18px;
+  }
+}

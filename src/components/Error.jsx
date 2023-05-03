@@ -10,6 +10,7 @@ const Error = function ({ errMessage }) {
     case 'Entered name of city not found!':
       errorImage = (
         <svg
+          className={styles.image}
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -40,6 +41,7 @@ const Error = function ({ errMessage }) {
     case 'You are offline. Please make sure you have turned on your internet connection!':
       errorImage = (
         <svg
+          className={styles.image}
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -66,6 +68,7 @@ const Error = function ({ errMessage }) {
     case `You didn't write anything!`:
       errorImage = (
         <svg
+          className={styles.image}
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
           xmlnsXlink="http://www.w3.org/1999/xlink"

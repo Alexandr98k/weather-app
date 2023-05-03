@@ -15,7 +15,7 @@ const WeatherInfo = function ({ weatherData }) {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>{name}</h1>
+      <h1 className={styles['city-name']}>{name}</h1>
       <div className={styles['image-container']}>
         <img
           className={styles.image}
