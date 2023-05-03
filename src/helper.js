@@ -105,7 +105,10 @@ export const calcApproximateTime = function (value) {
   return localCityTime;
 };
 
-export const defineHeightDisplay = function () {
+export const defineHeightMobileDisplay = function () {
+  const isMobile = navigator.userAgentData.mobile;
+  if (!isMobile) return;
+
   const setHeight = function () {
     const currentHeight = window.innerHeight;
     document.body.style.height = `${currentHeight}px`;
