@@ -12,7 +12,7 @@ const timeout = function (sec) {
 //get coords and name of city
 export const getCityData = async function (value, key) {
   try {
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${key}`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${key}`;
 
     const resCoords = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
 
