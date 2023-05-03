@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+//images
+import iconLocation from './assets/location-icon.png';
 //components
 import WeatherInfo from './components/WeatherInfo';
 import Card from './components/UI/Card';
@@ -67,7 +69,7 @@ function App() {
   return (
     <Card>
       <form className="form" onSubmit={handleFormSubmit}>
-        <img className="location-image" src="../public/images/icons/location-icon.png" alt="" />
+        <img className="location-image" src={iconLocation} alt="" />
         <Input inputValue={inputValue} setInputValue={setInputValue} />
         <Button />
       </form>
