@@ -1,6 +1,8 @@
 import { Fragment } from 'react';
 import styles from './Error.module.css';
 
+import errorIcon from './../assets/images/error.png';
+
 const Error = function ({ errMessage }) {
   let errorImage;
 
@@ -84,9 +86,7 @@ const Error = function ({ errMessage }) {
       );
       break;
     default:
-      errorImage = (
-        <img className={styles.image} alt="Error image" src="../../public/images/error.png" />
-      );
+      errorImage = <img className={styles.image} alt="Error image" src={errorIcon} />;
   }
 
   return (

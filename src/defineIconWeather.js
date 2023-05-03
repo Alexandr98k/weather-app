@@ -2,7 +2,6 @@ import clearDay from './assets/images/clear-day.svg';
 import clearNight from './assets/images/clear-night.svg';
 import clouds from './assets/images/cloudy.svg';
 import drizzle from './assets/images/drizzle.svg';
-import error from './assets/images/error.png';
 import fogDay from './assets/images/fog-day.svg';
 import fogNight from './assets/images/fog-night.svg';
 import fog from './assets/images/fog.svg';
