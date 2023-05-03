@@ -104,3 +104,18 @@ export const calcApproximateTime = function (value) {
   }
   return localCityTime;
 };
+
+export const fixedHeightMobile = function () {
+  const isMobile = navigator.userAgentData.mobile;
+
+  if (isMobile) {
+    useEffect(() => {
+      const documentHeight = () => {
+        const doc = document.documentElement;
+        doc.style.setProperty('--doc-height', `${window.innerHeight}px`);
+      };
+      window.addEventListener('resize', documentHeight);
+      documentHeight();
+    }, []);
+  }
+};
