@@ -15,6 +15,7 @@ import { checkInternetConnection } from './helper';
 import { checkIfInputNotEmpty } from './helper';
 import { getCityData } from './helper';
 import { calcApproximateTime } from './helper';
+import { defineHeightDisplay } from './helper';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
@@ -22,6 +23,9 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
+
+  //check height
+  defineHeightDisplay();
 
   //API KEY (save in enviroment variable = in other (not vite.js) it can be process.env)
   const API_KEY = import.meta.env.VITE_API_KEY;

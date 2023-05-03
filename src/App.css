@@ -8,6 +8,7 @@
 body {
   background: rgb(50, 50, 152);
   background: linear-gradient(45deg, rgba(50, 50, 152, 1) 32%, rgba(192, 232, 240, 1) 100%);
+  height: 100vh;
 }
 
 #root {
@@ -18,7 +19,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100%;
 }
 
 .form {

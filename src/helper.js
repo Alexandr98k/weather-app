@@ -104,3 +104,13 @@ export const calcApproximateTime = function (value) {
   }
   return localCityTime;
 };
+
+export const defineHeightDisplay = function () {
+  const setHeight = function () {
+    const currentHeight = window.innerHeight;
+    document.body.style.height = `${currentHeight}px`;
+  };
+  window.addEventListener('resize', setHeight);
+  //on start we also check the height of body
+  setHeight();
+};
