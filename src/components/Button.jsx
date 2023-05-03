@@ -1,5 +1,5 @@
 import styles from './Button.module.css';
-import buttonIcon from '../../public/images/icons/search-icon.png';
+import buttonIcon from '../assets/icons/search-icon.png';
 
 const Button = function () {
   return (
