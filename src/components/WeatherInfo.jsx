@@ -1,4 +1,8 @@
 import styles from './WeatherInfo.module.css';
+
+import windIcon from '../assets/icons/wind.png';
+import humidityIcon from '../assets/icons/humidity.png';
+
 const WeatherInfo = function ({ weatherData }) {
   const { temp, description1, description2, humid, wind, name, cloudy, time } = weatherData;
 
@@ -148,16 +152,12 @@ const WeatherInfo = function ({ weatherData }) {
       </div>
       <div className={styles['additional-info']}>
         <div className={styles['info-item']}>
-          <img
-            className={styles['info-image']}
-            src="../../public/images/icons/humidity.png"
-            alt=""
-          />
+          <img className={styles['info-image']} src={humidityIcon} alt="" />
           <p className={styles['info-stats']}>{humid}%</p>
           <p className={styles['info-text']}>Humidity</p>
         </div>
         <div className={styles['info-item']}>
-          <img className={styles['info-image']} src="../../public/images/icons/wind.png" alt="" />
+          <img className={styles['info-image']} src={windIcon} alt="" />
           <p className={styles['info-stats']}>{wind} m/s</p>
           <p className={styles['info-text']}>Wind Speed</p>
         </div>

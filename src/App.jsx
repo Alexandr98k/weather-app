@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 //images
-import iconLocation from './assets/location-icon.png';
+import iconLocation from './assets/icons/location-icon.png';
 //components
 import WeatherInfo from './components/WeatherInfo';
 import Card from './components/UI/Card';

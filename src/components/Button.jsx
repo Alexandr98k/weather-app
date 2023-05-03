@@ -1,12 +1,10 @@
 import styles from './Button.module.css';
-const Button = function ({ onHandleClick }) {
+import buttonIcon from '../../public/images/icons/search-icon.png';
+
+const Button = function () {
   return (
     <button className={styles['search-button']}>
-      <img
-        className={styles['search-icon']}
-        src="../../public/images/icons/search-icon.png"
-        alt="Search icon"
-      />
+      <img className={styles['search-icon']} src={buttonIcon} alt="Search icon" />
     </button>
   );
 };
