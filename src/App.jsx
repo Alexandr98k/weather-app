@@ -15,7 +15,6 @@ import { checkInternetConnection } from './helper';
 import { checkIfInputNotEmpty } from './helper';
 import { getCityData } from './helper';
 import { calcApproximateTime } from './helper';
-import { fixedHeightMobile } from './helper';
 
 function App() {
   const [inputValue, setInputValue] = useState('');
@@ -26,9 +25,6 @@ function App() {
 
   //API KEY (save in enviroment variable = in other (not vite.js) it can be process.env)
   const API_KEY = import.meta.env.VITE_API_KEY;
-
-  //fixed 100vh on mobile
-  fixedHeightMobile();
 
   //handle submit form
   const handleFormSubmit = async function (e) {
