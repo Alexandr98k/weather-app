@@ -1,33 +1,33 @@
-import clearDay from './assets/images/clear-day.svg';
-import clearNight from './assets/images/clear-night.svg';
-import clouds from './assets/images/cloudy.svg';
-import drizzle from './assets/images/drizzle.svg';
-import fogDay from './assets/images/fog-day.svg';
-import fogNight from './assets/images/fog-night.svg';
-import fog from './assets/images/fog.svg';
-import hazeDay from './assets/images/haze-day.svg';
-import hazeNight from './assets/images/haze-night.svg';
-import haze from './assets/images/haze.svg';
-import overcastDay from './assets/images/overcast-day.svg';
-import overcastNight from './assets/images/overcast-night.svg';
-import overcast from './assets/images/overcast.svg';
-import partlyCloudyDayDrizzle from './assets/images/partly-cloudy-day-drizzle.svg';
-import partlyCloudyDaySnow from './assets/images/partly-cloudy-day-snow.svg';
-import partlyCloudyDayRain from './assets/images/partly-cloudy-day-rain.svg';
-import partlyCloudyDay from './assets/images/partly-cloudy-day.svg';
-import partlyCloudyNightDrizzle from './assets/images/partly-cloudy-night-drizzle.svg';
-import partlyCloudyNightRain from './assets/images/partly-cloudy-night-rain.svg';
-import partlyCloudyNightSnow from './assets/images/partly-cloudy-night-snow.svg';
-import partlyCloudyNight from './assets/images/partly-cloudy-night.svg';
-import rain from './assets/images/rain.svg';
-import sleet from './assets/images/sleet.svg';
-import snow from './assets/images/snow.svg';
-import thunderstormsDayRain from './assets/images/thunderstorms-day-rain.svg';
-import thunderstormsNightRain from './assets/images/thunderstorms-night-rain.svg';
-import thunderstormsRain from './assets/images/thunderstorms-rain.svg';
-import tornado from './assets/images/tornado.svg';
+import clearDay from '../assets/images/clear-day.svg';
+import clearNight from '../assets/images/clear-night.svg';
+import clouds from '../assets/images/cloudy.svg';
+import drizzle from '../assets/images/drizzle.svg';
+import fogDay from '../assets/images/fog-day.svg';
+import fogNight from '../assets/images/fog-night.svg';
+import fog from '../assets/images/fog.svg';
+import hazeDay from '../assets/images/haze-day.svg';
+import hazeNight from '../assets/images/haze-night.svg';
+import haze from '../assets/images/haze.svg';
+import overcastDay from '../assets/images/overcast-day.svg';
+import overcastNight from '../assets/images/overcast-night.svg';
+import overcast from '../assets/images/overcast.svg';
+import partlyCloudyDayDrizzle from '../assets/images/partly-cloudy-day-drizzle.svg';
+import partlyCloudyDaySnow from '../assets/images/partly-cloudy-day-snow.svg';
+import partlyCloudyDayRain from '../assets/images/partly-cloudy-day-rain.svg';
+import partlyCloudyDay from '../assets/images/partly-cloudy-day.svg';
+import partlyCloudyNightDrizzle from '../assets/images/partly-cloudy-night-drizzle.svg';
+import partlyCloudyNightRain from '../assets/images/partly-cloudy-night-rain.svg';
+import partlyCloudyNightSnow from '../assets/images/partly-cloudy-night-snow.svg';
+import partlyCloudyNight from '../assets/images/partly-cloudy-night.svg';
+import rain from '../assets/images/rain.svg';
+import sleet from '../assets/images/sleet.svg';
+import snow from '../assets/images/snow.svg';
+import thunderstormsDayRain from '../assets/images/thunderstorms-day-rain.svg';
+import thunderstormsNightRain from '../assets/images/thunderstorms-night-rain.svg';
+import thunderstormsRain from '../assets/images/thunderstorms-rain.svg';
+import tornado from '../assets/images/tornado.svg';
 
-export const getImagePath = function (day, cloudy, description1, description2) {
+const getImagePath = function (day, cloudy, description1, description2) {
   //Clear sky
   if (description2 === 'clear sky') {
     if (day) {
@@ -152,3 +152,5 @@ export const getImagePath = function (day, cloudy, description1, description2) {
     return tornado;
   }
 };
+
+export default getImagePath;

@@ -4,7 +4,7 @@ import windIcon from '../assets/icons/wind.png';
 import humidityIcon from '../assets/icons/humidity.png';
 
 //helper function
-import { getImagePath } from '../defineIconWeather';
+import getImagePath from '../helpers/defineIconWeather';
 
 const WeatherInfo = function ({ weatherData }) {
   const { temp, description1, description2, humid, wind, name, cloudy, time } = weatherData;
