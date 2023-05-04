@@ -16,8 +16,8 @@ body {
   min-width: 320px;
   margin: 0 auto;
   padding: 0 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  place-items: center;
 }

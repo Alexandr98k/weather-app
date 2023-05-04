@@ -1,5 +1,5 @@
 .loader-container {
-  height: 476.8px;
+  height: 459px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,5 +22,14 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 500px) {
+  .loader-container {
+    height: 293px;
+  }
+  .loader {
+    height: 60px;
+    width: 60px;
   }
 }
