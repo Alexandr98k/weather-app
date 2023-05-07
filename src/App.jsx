@@ -1,39 +1,57 @@
-import { Fragment, useState } from 'react';
 import './App.css';
-//components
-import WeatherInfo from './components/WeatherInfo';
-import Card from './components/UI/Card';
-import Footer from './components/Footer';
-import Form from './components/Form';
-import Loader from './components/Loader';
-import Error from './components/Error';
-//helper functions
-import defineHeightMobileDisplay from './helpers/defineHeightMobileDisplay';
+import { Fragment, useState } from 'react';
+import { WeatherProvider } from './WeatherContext';
+import { useWeather } from './WeatherContext';
 
+import Board from './Board';
+import Loader from './components/UI/Loader';
+import BackgroundBlur from './components/UI/BackgroundBlur';
+import Modal from './components/UI/Modal';
+import Starter from './components/UI/Starter';
+
+//Доробити час точний, щоб не було перебою в годинах
 function App() {
-  const [weatherStats, setWeatherStats] = useState({});
+  const [firstEnter, setFirstEnter] = useState(true);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
 
-  //check height for mobile app
-  defineHeightMobileDisplay();
+  //setweather stats
+  const ctxWeather = useWeather();
+  console.log(ctxWeather);
 
   return (
-    <Fragment>
-      <Card>
-        <Form
-          setWeatherStats={setWeatherStats}
-          setIsError={setIsError}
-          setErrorMessage={setErrorMessage}
-          setIsLoaded={setIsLoaded}
-        />
-        {isLoaded && <Loader />}
-        {isError && <Error errMessage={errorMessage} />}
-        {Object.keys(weatherStats).length !== 0 && <WeatherInfo weatherData={weatherStats} />}
-      </Card>
-      <Footer />
-    </Fragment>
+    <div className="app">
+      <WeatherProvider>
+        {isError && (
+          <Fragment>
+            <Modal errorMessage={errorMessage} />
+            <BackgroundBlur setIsError={setIsError} />
+          </Fragment>
+        )}
+        {isLoaded && (
+          <Fragment>
+            <Loader />
+            <BackgroundBlur />
+          </Fragment>
+        )}
+        {firstEnter ? (
+          <Starter
+            setIsError={setIsError}
+            setErrorMessage={setErrorMessage}
+            setIsLoaded={setIsLoaded}
+            setFirstEnter={setFirstEnter}
+          />
+        ) : (
+          <Board
+            setIsError={setIsError}
+            setErrorMessage={setErrorMessage}
+            setIsLoaded={setIsLoaded}
+            setFirstEnter={setFirstEnter}
+          />
+        )}
+      </WeatherProvider>
+    </div>
   );
 }
 

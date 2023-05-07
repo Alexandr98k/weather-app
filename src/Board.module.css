@@ -1,0 +1,25 @@
+.app {
+  background-color: #0e100f;
+  margin: 30px 0 30px;
+  padding: 20px;
+  border-radius: 25px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(99px, 171.8px));
+  grid-template-rows: repeat(3, 190px);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 170px);
+    gap: 16px;
+  }
+}
+@media (max-width: 580px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 220px);
+  }
+}

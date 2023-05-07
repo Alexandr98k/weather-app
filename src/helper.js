@@ -17,9 +17,21 @@ export const checkInternetConnection = function () {
 };
 
 //check if form is not empty when form is submitting
-export const checkIfInputNotEmpty = function (inputValue) {
+export const checkInputEmpty = function (inputValue) {
   if (inputValue === '') {
     throw new Error(`You didn't write anything!`);
     return;
   }
+};
+
+export const convertTime = function (timeStamp) {
+  let hours = new Date(timeStamp * 1000).getHours();
+  let minutes = new Date(timeStamp * 1000).getMinutes();
+  if (hours.toString().length === 1) {
+    hours = `0${hours}`;
+  }
+  if (minutes.toString().length === 1) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
 };

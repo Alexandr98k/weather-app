@@ -1,7 +1,9 @@
 import { TIMEOUT_SEC } from './../config';
-import { timeout } from './../helper';
+import { timeout, convertTime } from './../helper';
+import getCurrentTime from './getCurrentTime';
+import getDate from './getDate';
 //Second AJAX CALL
-const getWeatherData = async function (value, key, cityTime) {
+const getWeatherData = async function (value, key) {
   try {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${value.lat}&lon=${value.lon}&appid=${key}`;
 
@@ -14,14 +16,24 @@ const getWeatherData = async function (value, key, cityTime) {
     const data = await resWeather.json();
 
     return {
+      lat: value.lat.toFixed(4),
+      lon: value.lon.toFixed(4),
       temp: Math.round(data.main.temp - 273),
       humid: data.main.humidity,
-      wind: data.wind.speed,
+      wind: {
+        windSpeed: data.wind.speed,
+        windSide: data.wind.deg,
+      },
+      sunrise: convertTime(data.sys.sunrise),
+      sunset: convertTime(data.sys.sunset),
+      pressure: Math.round(data.main.pressure / 1.33),
+      feelsLike: Math.round(data.main.feels_like - 273),
       description1: data.weather[0].main,
       description2: data.weather[0].description,
       cloudy: data.clouds.all,
-      name: value.name,
-      time: cityTime,
+      location: `${value.name}, ${data.sys.country}`,
+      time: getCurrentTime(data.timezone),
+      date: getDate(),
     };
   } catch (error) {
     throw error;

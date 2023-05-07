@@ -1,0 +1,53 @@
+.modal {
+  background: url('../src/assets/images/gradient-4.jpg');
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  border-radius: 9px;
+
+  padding: 25px;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+  z-index: 200;
+  transition: all 0.5s;
+}
+
+.image {
+  width: 150px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.text {
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .modal {
+    width: 300px;
+  }
+  .image {
+    width: 100px;
+    height: 150px;
+  }
+  .text {
+    font-size: 16px;
+  }
+}
+@media (max-width: 425px) {
+  .modal {
+    width: 240px;
+  }
+  .image {
+    width: 80px;
+    height: 110px;
+  }
+  .text {
+    font-size: 14px;
+  }
+}

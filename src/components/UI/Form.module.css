@@ -1,0 +1,33 @@
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+.input {
+  width: 100%;
+  padding: 15px 45px 15px 15px;
+  font-size: 20px;
+  border-radius: 16px;
+  background-color: #0e100f;
+  color: #fff;
+}
+
+.button {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  height: 25px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.input:focus {
+  outline: none;
+  border: none;
+}
+.input:focus::placeholder {
+  color: #fff;
+}
+
+.button img {
+  width: 33px;
+}

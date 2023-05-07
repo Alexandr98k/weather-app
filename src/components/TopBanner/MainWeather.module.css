@@ -1,0 +1,136 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.top-container {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.weather-image {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 12px;
+}
+.temperature {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.clouds-description {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+.image-description {
+  width: 20px;
+}
+.bottom-container {
+  padding: 20px 0 0;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.location-icon {
+  width: 20px;
+}
+
+.calendar-icon {
+  width: 15px;
+  height: 15px;
+  margin-left: 2px;
+}
+
+@media (max-width: 768px) {
+  .weather-image {
+    margin-bottom: 0px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    height: 170px;
+    width: 170px;
+  }
+  .clouds-description {
+    margin-bottom: 60px;
+    font-size: 18px;
+  }
+  .image-description {
+    width: 30px;
+  }
+  .top-container {
+    position: relative;
+    padding-top: 40px;
+  }
+  .temperature {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .flex:first-child {
+    margin-right: 12px;
+  }
+  .flex:last-child {
+    margin-left: 12px;
+  }
+  .location-icon {
+    width: 30px;
+  }
+
+  .calendar-icon {
+    width: 22px;
+    height: 22px;
+    margin-left: 2px;
+  }
+  .flex p {
+    font-size: 20px;
+  }
+}
+@media (max-width: 580px) {
+  .top-container {
+    padding-top: 0;
+    display: block;
+  }
+  .weather-image {
+    position: static;
+    width: 150px;
+    height: 150px;
+    margin-left: -16px;
+  }
+  .clouds-description {
+    margin-bottom: 35px;
+    font-size: 18px;
+  }
+  .flex {
+    margin: 0;
+  }
+  .flex p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 382px) {
+  .clouds-description {
+    margin-bottom: 20px;
+  }
+  .flex {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .calendar-icon {
+    margin-bottom: 6px;
+  }
+  .flex p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
