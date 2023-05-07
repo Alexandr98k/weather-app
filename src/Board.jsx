@@ -4,9 +4,6 @@ import MainInfoBanner from './components/MainBanner/MainBanner';
 import AdditionalInfoBanner1 from './components/AdditionalInfoBanners/AdditionalInfoBanner1';
 import AdditionalInfoBanner2 from './components/AdditionalInfoBanners/AdditionalInfoBanner2';
 import { useWeather } from './WeatherContext';
-import Loader from './components/UI/Loader';
-import BackgroundBlur from './components/UI/BackgroundBlur';
-import Modal from './Modal';
 
 const Board = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter }) {
   const weather = useWeather();
