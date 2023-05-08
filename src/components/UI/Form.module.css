@@ -5,7 +5,7 @@
 .input {
   width: 100%;
   padding: 15px 45px 15px 15px;
-  font-size: 20px;
+  font-size: 18px;
   border-radius: 16px;
   background-color: #0e100f;
   color: #fff;
@@ -30,4 +30,9 @@
 
 .button img {
   width: 33px;
+}
+@media (max-width: 768px) {
+  .input {
+    font-size: 16px;
+  }
 }

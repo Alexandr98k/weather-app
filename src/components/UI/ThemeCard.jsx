@@ -1,12 +1,12 @@
 import styles from './ThemeCard.module.css';
 import { useState } from 'react';
 const ThemeCard = function ({ isStarterThemeIcon }) {
-  const [light, setLight] = useState(true);
+  const [light, setLight] = useState(false);
 
   return (
     <div className={isStarterThemeIcon ? `${styles['card-starter']}` : `${styles['card-board']}`}>
       <button className={styles.button} onClick={() => setLight(!light)}>
-        {!light ? (
+        {light ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"

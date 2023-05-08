@@ -1,7 +1,8 @@
 import './App.css';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { WeatherProvider } from './WeatherContext';
 import { useWeather } from './WeatherContext';
+import defineHeightMobileDisplay from './helpers/defineHeightMobileDisplay';
 
 import Board from './Board';
 import Loader from './components/UI/Loader';
@@ -15,6 +16,9 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
+
+  //визначаємо висоту екрану на мобілці і фіксимо баг з панелю
+  defineHeightMobileDisplay();
 
   //setweather stats
   const ctxWeather = useWeather();
@@ -56,3 +60,5 @@ function App() {
 }
 
 export default App;
+
+//Зробити кастомний хук для отримання ширини екрану, щоб зчитувалась ширина на початку запуску програми та після кожного ресайзу також
