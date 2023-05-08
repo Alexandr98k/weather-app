@@ -7,7 +7,6 @@ const weatherReducer = function (weatherData, action) {
   switch (action.type) {
     case 'adding': {
       return {
-        ...weatherData,
         ...action.value,
       };
     }

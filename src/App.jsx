@@ -25,7 +25,7 @@ function App() {
       <WeatherProvider>
         {isError && (
           <Fragment>
-            <Modal errorMessage={errorMessage} />
+            <Modal errorMessage={errorMessage} setIsError={setIsError} />
             <BackgroundBlur setIsError={setIsError} />
           </Fragment>
         )}
