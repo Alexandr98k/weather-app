@@ -11,6 +11,13 @@
   border-radius: 8px;
   position: relative;
 }
+.additional-card svg {
+  width: 28px;
+  color: var(--text-color);
+  position: absolute;
+  top: 32px;
+  right: 15px;
+}
 
 .title {
   font-size: 13px;
@@ -27,13 +34,7 @@
 .description {
   font-size: 11px;
 }
-.icon {
-  width: 28px;
-  color: var(--text-color);
-  position: absolute;
-  top: 28px;
-  right: 10px;
-}
+
 @media (max-width: 768px) {
   .title {
     font-size: 12px;

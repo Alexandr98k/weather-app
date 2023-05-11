@@ -19,9 +19,11 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const { theme } = useTheme();
   const [currentTheme, setCurrentTheme] = useState(theme);
-  console.log(currentTheme);
+	
   //визначаємо висоту екрану на мобілці і фіксимо баг з панелю
-  defineHeightMobileDisplay();
+  useEffect(() => {
+    defineHeightMobileDisplay();
+  }, []);
 
   return (
     <div className={`app ${currentTheme === 'dark' ? 'dark' : 'light'}`}>

@@ -10,7 +10,6 @@ const ThemeCard = function ({ isStarterThemeIcon, setCurrentTheme }) {
   const dispatch = useThemeDispatch();
 
   const { theme } = useTheme();
-  console.log(theme);
 
   const btnClickHandler = function () {
     dispatch(theme === 'light' ? { type: 'dark' } : { type: 'light' });
