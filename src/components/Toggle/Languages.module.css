@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  gap: 10px;
+}
+.button {
+  font-size: 18px;
+  padding-bottom: 2px;
+  color: var(--text-color);
+}
+.button.active {
+  padding-bottom: 0;
+  border-bottom: 2px solid var(--btn-border);
+}

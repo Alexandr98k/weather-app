@@ -52,11 +52,11 @@
     position: absolute;
     top: 0px;
     right: 10px;
-    height: 170px;
-    width: 170px;
+    height: 130px;
+    width: 130px;
   }
   .clouds-description {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     font-size: 18px;
   }
   .image-description {
@@ -64,7 +64,6 @@
   }
   .top-container {
     position: relative;
-    padding-top: 40px;
   }
   .temperature {
     font-size: 40px;
@@ -97,17 +96,19 @@
 }
 @media (max-width: 580px) {
   .top-container {
-    padding-top: 0;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
   .weather-image {
     position: static;
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     margin-left: -16px;
   }
   .clouds-description {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
     font-size: 18px;
   }
   .flex {
@@ -119,7 +120,10 @@
 }
 @media (max-width: 382px) {
   .clouds-description {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+  .bottom-container {
+    padding: 5px 0 0;
   }
   .flex {
     flex-wrap: wrap;

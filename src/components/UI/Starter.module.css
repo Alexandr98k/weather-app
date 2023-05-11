@@ -7,7 +7,7 @@
 }
 .container {
   background: var(--bg-gradient-2);
-  padding: 80px 10px 20px;
+  padding: 30px 10px 20px;
   border-radius: 25px;
 }
 .title {

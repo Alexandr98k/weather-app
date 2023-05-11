@@ -3,6 +3,7 @@ import { Fragment, useState, useEffect } from 'react';
 import { WeatherProvider } from './WeatherContext';
 import { ThemeProvider } from './ThemeContext';
 import { useTheme } from './ThemeContext';
+import useMoveToggleComponent from './useMoveToggleComponent';
 import defineHeightMobileDisplay from './helpers/defineHeightMobileDisplay';
 
 import Board from './Board';
@@ -19,11 +20,12 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const { theme } = useTheme();
   const [currentTheme, setCurrentTheme] = useState(theme);
-	
+
   //визначаємо висоту екрану на мобілці і фіксимо баг з панелю
-  useEffect(() => {
-    defineHeightMobileDisplay();
-  }, []);
+  // useEffect(() => {
+  //   defineHeightMobileDisplay();
+  // }, []);
+  const isMovedToggle = useMoveToggleComponent();
 
   return (
     <div className={`app ${currentTheme === 'dark' ? 'dark' : 'light'}`}>
@@ -52,6 +54,7 @@ function App() {
             />
           ) : (
             <Board
+              isMovedToggle={isMovedToggle}
               isError={isError}
               setCurrentTheme={setCurrentTheme}
               setIsError={setIsError}

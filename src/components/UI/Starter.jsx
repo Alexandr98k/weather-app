@@ -1,6 +1,7 @@
 import styles from './Starter.module.css';
 import Form from './Form';
-import ThemeCard from './ThemeCard';
+import Toggle from '../Toggle/Toggle';
+import ThemeCard from '../Toggle/ThemeCard';
 
 const Starter = function ({
   setErrorMessage,
@@ -12,8 +13,9 @@ const Starter = function ({
 }) {
   return (
     <div className={styles.starter}>
-      <ThemeCard isStarterThemeIcon={true} setCurrentTheme={setCurrentTheme} />
+      {/* <ThemeCard isStarterThemeIcon={true} setCurrentTheme={setCurrentTheme} /> */}
       <div className={styles.container}>
+        <Toggle setCurrentTheme={setCurrentTheme} />
         <h2 className={styles.title}>Enter the name of the city and find out the weather</h2>
         <p className={styles.icons}>🌤️🌞☁️🌡️</p>
         <Form

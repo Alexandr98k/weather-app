@@ -1,6 +1,6 @@
 import styles from './Board.module.css';
 import TopBanner from './components/TopBanner/TopBanner';
-import MainInfoBanner from './components/MainBanner/MainBanner';
+import MainBanner from './components/MainBanner/MainBanner';
 import AdditionalInfoBanner1 from './components/AdditionalInfoBanners/AdditionalInfoBanner1';
 import AdditionalInfoBanner2 from './components/AdditionalInfoBanners/AdditionalInfoBanner2';
 
@@ -11,6 +11,7 @@ const Board = function ({
   setFirstEnter,
   setCurrentTheme,
   isError,
+  isMovedToggle,
 }) {
   return (
     <div className={styles.app}>
@@ -20,8 +21,10 @@ const Board = function ({
         setIsLoaded={setIsLoaded}
         isError={isError}
         setFirstEnter={setFirstEnter}
+        isMovedToggle={isMovedToggle}
+        setCurrentTheme={setCurrentTheme}
       />
-      <MainInfoBanner setCurrentTheme={setCurrentTheme} />
+      <MainBanner isMovedToggle={isMovedToggle} setCurrentTheme={setCurrentTheme} />
       <AdditionalInfoBanner1 />
       <AdditionalInfoBanner2 />
     </div>
