@@ -1,9 +1,9 @@
 .app {
-  background-color: #0e100f;
+  background-color: var(--bg-color);
   margin: 30px 0 30px;
   padding: 20px;
   border-radius: 25px;
-  color: #fff;
+  color: var(--text-color);
   display: grid;
   grid-template-columns: repeat(6, minmax(99px, 171.8px));
   grid-template-rows: repeat(3, 190px);

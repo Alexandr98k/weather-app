@@ -7,8 +7,8 @@
   padding: 15px 45px 15px 15px;
   font-size: 18px;
   border-radius: 16px;
-  background-color: #0e100f;
-  color: #fff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .button {
@@ -25,11 +25,13 @@
   border: none;
 }
 .input:focus::placeholder {
-  color: #fff;
+  color: var(--text-color);
 }
 
-.button img {
+.button svg {
+  color: var(--text-color);
   width: 33px;
+  height: 33px;
 }
 @media (max-width: 768px) {
   .input {

@@ -5,7 +5,7 @@
   grid-area: 3 / 1 / 4 / 4;
   border-radius: 25px;
   padding: 16px;
-  background: url('../../assets/images/gradient-1.jpg') no-repeat center center;
+  background: var(--bg-gradient-2);
 }
 
 .image {

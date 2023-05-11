@@ -3,7 +3,7 @@
   align-items: center;
   gap: 20px;
   grid-area: 3 / 4 / 4 / 7;
-  background: url('../../assets/images/gradient-1.jpg') no-repeat center center;
+  background: var(--bg-gradient-2);
   border-radius: 25px;
   padding: 16px;
 }

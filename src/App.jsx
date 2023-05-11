@@ -1,7 +1,8 @@
 import './App.css';
 import { Fragment, useState, useEffect } from 'react';
 import { WeatherProvider } from './WeatherContext';
-import { useWeather } from './WeatherContext';
+import { ThemeProvider } from './ThemeContext';
+import { useTheme } from './ThemeContext';
 import defineHeightMobileDisplay from './helpers/defineHeightMobileDisplay';
 
 import Board from './Board';
@@ -16,45 +17,49 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const { theme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState(theme);
+  console.log(currentTheme);
   //визначаємо висоту екрану на мобілці і фіксимо баг з панелю
   defineHeightMobileDisplay();
 
-  //setweather stats
-  const ctxWeather = useWeather();
-  console.log(ctxWeather);
-
   return (
-    <div className="app">
-      <WeatherProvider>
-        {isError && (
-          <Fragment>
-            <Modal errorMessage={errorMessage} setIsError={setIsError} />
-            <BackgroundBlur setIsError={setIsError} />
-          </Fragment>
-        )}
-        {isLoaded && (
-          <Fragment>
-            <Loader />
-            <BackgroundBlur />
-          </Fragment>
-        )}
-        {firstEnter ? (
-          <Starter
-            setIsError={setIsError}
-            setErrorMessage={setErrorMessage}
-            setIsLoaded={setIsLoaded}
-            setFirstEnter={setFirstEnter}
-          />
-        ) : (
-          <Board
-            setIsError={setIsError}
-            setErrorMessage={setErrorMessage}
-            setIsLoaded={setIsLoaded}
-            setFirstEnter={setFirstEnter}
-          />
-        )}
-      </WeatherProvider>
+    <div className={`app ${currentTheme === 'dark' ? 'dark' : 'light'}`}>
+      <ThemeProvider>
+        <WeatherProvider>
+          {isError && (
+            <Fragment>
+              <Modal errorMessage={errorMessage} setIsError={setIsError} />
+              <BackgroundBlur setIsError={setIsError} />
+            </Fragment>
+          )}
+          {isLoaded && (
+            <Fragment>
+              <Loader />
+              <BackgroundBlur />
+            </Fragment>
+          )}
+          {firstEnter ? (
+            <Starter
+              setCurrentTheme={setCurrentTheme}
+              setIsError={setIsError}
+              setErrorMessage={setErrorMessage}
+              setIsLoaded={setIsLoaded}
+              setFirstEnter={setFirstEnter}
+              isError={isError}
+            />
+          ) : (
+            <Board
+              isError={isError}
+              setCurrentTheme={setCurrentTheme}
+              setIsError={setIsError}
+              setErrorMessage={setErrorMessage}
+              setIsLoaded={setIsLoaded}
+              setFirstEnter={setFirstEnter}
+            />
+          )}
+        </WeatherProvider>
+      </ThemeProvider>
     </div>
   );
 }

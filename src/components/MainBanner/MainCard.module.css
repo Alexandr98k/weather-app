@@ -9,7 +9,7 @@
 }
 
 .card {
-  background: url('../../assets/images/gradient-3.jpg') no-repeat center center;
+  background: var(--bg-gradient-1);
   padding: 16px;
   display: flex;
   flex-direction: column;

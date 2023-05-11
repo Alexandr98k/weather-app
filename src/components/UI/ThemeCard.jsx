@@ -1,47 +1,30 @@
 import styles from './ThemeCard.module.css';
 import { useState } from 'react';
-const ThemeCard = function ({ isStarterThemeIcon }) {
-  const [light, setLight] = useState(false);
+import { useThemeDispatch } from '../../ThemeContext';
+import { useTheme } from '../../ThemeContext';
+import sunImage from '../../assets/images/icons/sun.svg';
+import moonImage from '../../assets/images/icons/moon.svg';
+
+const ThemeCard = function ({ isStarterThemeIcon, setCurrentTheme }) {
+  //після ре-рендеру цей стейт втрачає своє значення
+  const dispatch = useThemeDispatch();
+
+  const { theme } = useTheme();
+  console.log(theme);
+
+  const btnClickHandler = function () {
+    dispatch(theme === 'light' ? { type: 'dark' } : { type: 'light' });
+    //set current theme for parent class to add different styles
+    setCurrentTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   return (
     <div className={isStarterThemeIcon ? `${styles['card-starter']}` : `${styles['card-board']}`}>
-      <button className={styles.button} onClick={() => setLight(!light)}>
-        {light ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            width="30"
-            height="30"
-            x="0"
-            y="0"
-            viewBox="0 0 312.999 312.999"
-            xmlSpace="preserve">
-            <g>
-              <path
-                d="M305.6 178.053c-3.2-.8-6.4 0-9.2 2-10.4 8.8-22.4 16-35.6 20.8-12.4 4.8-26 7.2-40.4 7.2-32.4 0-62-13.2-83.2-34.4-21.2-21.2-34.4-50.8-34.4-83.2 0-13.6 2.4-26.8 6.4-38.8 4.4-12.8 10.8-24.4 19.2-34.4 3.6-4.4 2.8-10.8-1.6-14.4-2.8-2-6-2.8-9.2-2-34 9.2-63.6 29.6-84.8 56.8-20.4 26.8-32.8 60-32.8 96.4 0 43.6 17.6 83.2 46.4 112s68.4 46.4 112 46.4c36.8 0 70.8-12.8 98-34 27.6-21.6 47.6-52.4 56-87.6 2-6-1.2-11.6-6.8-12.8zm-61.2 83.6c-23.2 18.4-52.8 29.6-85.2 29.6-38 0-72.4-15.6-97.2-40.4-24.8-24.8-40.4-59.2-40.4-97.2 0-31.6 10.4-60.4 28.4-83.6 12.4-16 28-29.2 46-38.4-2 4.4-4 8.8-5.6 13.6-5.2 14.4-7.6 29.6-7.6 45.6 0 38 15.6 72.8 40.4 97.6s59.6 40.4 97.6 40.4c16.8 0 32.8-2.8 47.6-8.4 5.2-2 10.4-4 15.2-6.4-9.6 18.4-22.8 34.8-39.2 47.6z"
-                fill="currentColor"
-                data-original="#000000"></path>
-            </g>
-          </svg>
+      <button className={styles.button} onClick={btnClickHandler}>
+        {theme === 'light' ? (
+          <img src={moonImage} alt="Moon icon" />
         ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            width="30"
-            height="30"
-            x="0"
-            y="0"
-            viewBox="0 0 384 384"
-            xmlSpace="preserve">
-            <g>
-              <path
-                d="M101.488 78.864 78.864 56.24c-6.24-6.248-16.384-6.248-22.624 0-6.248 6.248-6.248 16.376 0 22.624l22.624 22.624a15.923 15.923 0 0 0 11.312 4.688c4.096 0 8.192-1.56 11.312-4.688 6.248-6.248 6.248-16.376 0-22.624zM48 176H16c-8.832 0-16 7.168-16 16s7.168 16 16 16h32c8.832 0 16-7.168 16-16s-7.168-16-16-16zM101.488 282.512c-6.24-6.248-16.384-6.248-22.624 0L56.24 305.136c-6.248 6.248-6.248 16.376 0 22.624 3.12 3.128 7.216 4.688 11.312 4.688s8.192-1.56 11.312-4.688l22.624-22.624c6.248-6.248 6.248-16.376 0-22.624zM192 320c-8.832 0-16 7.168-16 16v32c0 8.832 7.168 16 16 16s16-7.168 16-16v-32c0-8.832-7.168-16-16-16zM327.76 305.136l-22.624-22.624c-6.24-6.248-16.384-6.248-22.624 0-6.248 6.248-6.248 16.376 0 22.624l22.624 22.624c3.12 3.128 7.216 4.688 11.312 4.688s8.192-1.56 11.312-4.688c6.248-6.248 6.248-16.376 0-22.624zM368 176h-32c-8.832 0-16 7.168-16 16s7.168 16 16 16h32c8.832 0 16-7.168 16-16s-7.168-16-16-16zM327.76 56.24c-6.24-6.248-16.384-6.248-22.624 0l-22.624 22.624c-6.248 6.248-6.248 16.376 0 22.624 3.12 3.128 7.216 4.688 11.312 4.688s8.192-1.56 11.312-4.688l22.624-22.624c6.248-6.248 6.248-16.376 0-22.624zM192 0c-8.832 0-16 7.168-16 16v32c0 8.832 7.168 16 16 16s16-7.168 16-16V16c0-8.832-7.168-16-16-16zM192 88c-57.344 0-104 46.656-104 104s46.656 104 104 104 104-46.656 104-104S249.344 88 192 88zm0 176c-39.696 0-72-32.304-72-72s32.304-72 72-72 72 32.304 72 72-32.304 72-72 72z"
-                fill="currentColor"
-                data-original="#000000"></path>
-            </g>
-          </svg>
+          <img src={sunImage} alt="Sun icon" />
         )}
       </button>
     </div>

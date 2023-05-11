@@ -1,16 +1,13 @@
 import styles from './Form.module.css';
 import { useState } from 'react';
 import { useWeatherDispatch } from '../../WeatherContext';
-import searchIcon from '../../assets/images/icons/search.svg';
 //helper functions
 import getCityData from '../../helpers/getCityData';
 import getWeatherData from '../../helpers/getWeatherData';
 import { checkInternetConnection } from '../../helper';
 import { checkInputEmpty } from '../../helper';
 
-const Form = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter }) {
-  // useState for isLoaded, isError, errorMessage
-  //dispatch success info about the weather in city
+const Form = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter, isError }) {
   const [inputValue, setInputValue] = useState('');
   const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -59,9 +56,28 @@ const Form = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter
         value={inputValue}
         type="text"
         placeholder="Enter city name"
+        disabled={isError}
       />
       <button type="submit" className={styles.button}>
-        <img src={searchIcon} alt="Search icon" />
+        <svg
+          width="800px"
+          height="800px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M15 15L21 21"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+            stroke="currentColor"
+            strokeWidth="2"
+          />
+        </svg>
       </button>
     </form>
   );
