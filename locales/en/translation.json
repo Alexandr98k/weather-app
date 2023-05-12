@@ -1,0 +1,34 @@
+{
+  "starter": {
+    "title": "Enter the name of the city and find out the weather"
+  },
+  "form": {
+    "input": "Enter city name"
+  },
+  "main-banner": {
+    "title": "Today's Highlights",
+    "wind-title": "Wind",
+    "pressure-title": "Pressure",
+    "sun-title": "Sunrise and sunset",
+    "wind-speed": "m/s",
+    "wind-side": "deg",
+    "pressure-unit": "mm",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "feels-title": "Feels like",
+    "feel-text": "How hot or cold it really feels",
+    "cloudy-title": "Cloudiness",
+    "cloudy-text": "The sky fraction obscured by clouds"
+  },
+  "additional-banner-1": {
+    "title-1": "Longitude:",
+    "text-1": "Longitude measures distance east or west of the prime meridian.",
+    "title-2": "Latitude:",
+    "text-2": "Latitude lines start at the equator (0 degrees latitude) and run east and west, parallel to the equator."
+  },
+  "additional-banner-2": {
+    "title": "Humidity:",
+    "text-1": "Humidity is the concentration of water vapor present in the air. Water vapor, the gaseous state of water, is generally invisible to the human eye.",
+    "text-2": "The same amount of water vapor results in higher relative humidity in cool air than warm air."
+  }
+}
