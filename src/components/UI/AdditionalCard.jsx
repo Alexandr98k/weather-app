@@ -1,11 +1,15 @@
 import styles from './AdditionalCard.module.css';
 import { useWeather } from '../../WeatherContext';
+import { useTranslation } from 'react-i18next';
 
 const AdditionalCard = function ({ num, title }) {
+  const { t } = useTranslation();
   const weatherData = useWeather();
   let img;
+  let translationTitle;
 
   if (title === 'Cloudiness') {
+    translationTitle = <h3 className={styles.title}>{t('main-banner.cloudy-title')}</h3>;
     img = (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +26,7 @@ const AdditionalCard = function ({ num, title }) {
       </svg>
     );
   } else {
+    translationTitle = <h3 className={styles.title}>{t('main-banner.feels-title')}</h3>;
     img = (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -40,21 +45,21 @@ const AdditionalCard = function ({ num, title }) {
   }
   return (
     <div className={`${styles[`additional-card-${num}`]} ${styles['additional-card']}`}>
-      <h3 className={styles.title}>{title}</h3>
+      {translationTitle}
       {img}
       {title === 'Cloudiness' ? (
         <>
           <p className={styles.value}>
             {weatherData.cloudy} <span>%</span>
           </p>
-          <p className={styles.description}>The sky fraction obscured by clouds</p>
+          <p className={styles.description}>{t('main-banner.cloudy-text')}</p>
         </>
       ) : (
         <>
           <p className={styles.value}>
             {weatherData.feelsLike} <span>℃</span>
           </p>
-          <p className={styles.description}>How hot or cold it really feels</p>
+          <p className={styles.description}>{t('main-banner.feel-text')}</p>
         </>
       )}
     </div>

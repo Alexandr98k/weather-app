@@ -1,7 +1,8 @@
 import styles from './Starter.module.css';
 import Form from './Form';
 import Toggle from '../Toggle/Toggle';
-import ThemeCard from '../Toggle/ThemeCard';
+
+import { useTranslation } from 'react-i18next';
 
 const Starter = function ({
   setErrorMessage,
@@ -11,12 +12,13 @@ const Starter = function ({
   setCurrentTheme,
   isError,
 }) {
+  const { t } = useTranslation();
   return (
     <div className={styles.starter}>
       {/* <ThemeCard isStarterThemeIcon={true} setCurrentTheme={setCurrentTheme} /> */}
       <div className={styles.container}>
         <Toggle setCurrentTheme={setCurrentTheme} />
-        <h2 className={styles.title}>Enter the name of the city and find out the weather</h2>
+        <h2 className={styles.title}>{t('starter.title')}</h2>
         <p className={styles.icons}>🌤️🌞☁️🌡️</p>
         <Form
           isError={isError}

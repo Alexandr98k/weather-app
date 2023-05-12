@@ -6,9 +6,11 @@ import getCityData from '../../helpers/getCityData';
 import getWeatherData from '../../helpers/getWeatherData';
 import { checkInternetConnection } from '../../helper';
 import { checkInputEmpty } from '../../helper';
+import { useTranslation } from 'react-i18next';
 
 const Form = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter, isError }) {
   const [inputValue, setInputValue] = useState('');
+  const { t } = useTranslation();
   const API_KEY = import.meta.env.VITE_API_KEY;
 
   const dispatch = useWeatherDispatch();
@@ -55,7 +57,7 @@ const Form = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter
         onChange={(e) => setInputValue(e.target.value)}
         value={inputValue}
         type="text"
-        placeholder="Enter city name"
+        placeholder={t('form.input')}
         disabled={isError}
       />
       <button type="submit" className={styles.button}>
