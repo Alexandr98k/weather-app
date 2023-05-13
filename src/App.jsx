@@ -1,16 +1,15 @@
 import './App.css';
-import { Fragment, useState, useEffect } from 'react';
-import { WeatherProvider } from './WeatherContext';
-import { ThemeProvider } from './ThemeContext';
-import { useTheme } from './ThemeContext';
-import useMoveToggleComponent from './useMoveToggleComponent';
+import { useState } from 'react';
+import { WeatherProvider } from './context/WeatherContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { useTheme } from './context/ThemeContext';
+import useMoveToggleComponent from './hooks/useMoveToggleComponent';
+
 import defineHeightMobileDisplay from './helpers/defineHeightMobileDisplay';
 
-import Board from './Board';
-import Loader from './components/UI/Loader';
-import BackgroundBlur from './components/UI/BackgroundBlur';
-import Modal from './components/UI/Modal';
-import Starter from './components/UI/Starter';
+import LoadingScreen from './components/LoadingScreen';
+import ModalScreen from './components/ModalScreen';
+import Main from './components/Main';
 
 //Доробити час точний, щоб не було перебою в годинах
 function App() {
@@ -21,44 +20,28 @@ function App() {
   const { theme } = useTheme();
   const [curTheme, setCurTheme] = useState(theme);
 
+  //
+  defineHeightMobileDisplay();
+
+  //Define if the toggle block needs to be moved to a different place in markup
   const isMovedToggle = useMoveToggleComponent();
 
   return (
     <WeatherProvider>
       <ThemeProvider>
         <div className={`app ${curTheme === 'dark' ? 'dark' : 'light'}`}>
-          {isError && (
-            <Fragment>
-              <Modal errorMessage={errorMessage} setIsError={setIsError} />
-              <BackgroundBlur setIsError={setIsError} />
-            </Fragment>
-          )}
-          {isLoaded && (
-            <Fragment>
-              <Loader />
-              <BackgroundBlur />
-            </Fragment>
-          )}
-          {firstEnter ? (
-            <Starter
-              setIsError={setIsError}
-              setErrorMessage={setErrorMessage}
-              setIsLoaded={setIsLoaded}
-              setFirstEnter={setFirstEnter}
-              isError={isError}
-              setCurTheme={setCurTheme}
-            />
-          ) : (
-            <Board
-              isMovedToggle={isMovedToggle}
-              isError={isError}
-              setIsError={setIsError}
-              setErrorMessage={setErrorMessage}
-              setIsLoaded={setIsLoaded}
-              setFirstEnter={setFirstEnter}
-              setCurTheme={setCurTheme}
-            />
-          )}
+          {isError && <ModalScreen errorMessage={errorMessage} setIsError={setIsError} />}
+          {isLoaded && <LoadingScreen />}
+          <Main
+            firstEnter={firstEnter}
+            setIsError={setIsError}
+            setErrorMessage={setErrorMessage}
+            setIsLoaded={setIsLoaded}
+            setFirstEnter={setFirstEnter}
+            isError={isError}
+            setCurTheme={setCurTheme}
+            isMovedToggle={isMovedToggle}
+          />
         </div>
       </ThemeProvider>
     </WeatherProvider>

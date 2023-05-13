@@ -1,5 +1,5 @@
 import styles from './MainWeather.module.css';
-import { useWeather } from '../../WeatherContext';
+import { useWeather } from '../../context/WeatherContext';
 
 import getImagePath from '../../helpers/defineIconWeather';
 

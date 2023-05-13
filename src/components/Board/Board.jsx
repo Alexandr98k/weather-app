@@ -1,8 +1,8 @@
 import styles from './Board.module.css';
-import TopBanner from './components/TopBanner/TopBanner';
-import MainBanner from './components/MainBanner/MainBanner';
-import AdditionalInfoBanner1 from './components/AdditionalInfoBanners/AdditionalInfoBanner1';
-import AdditionalInfoBanner2 from './components/AdditionalInfoBanners/AdditionalInfoBanner2';
+import TopBanner from '../TopBanner/TopBanner';
+import MainBanner from '../MainBanner/MainBanner';
+import AdditionalInfoBanner1 from '../AdditionalInfoBanners/AdditionalInfoBanner1';
+import AdditionalInfoBanner2 from '../AdditionalInfoBanners/AdditionalInfoBanner2';
 
 const Board = function ({
   setIsError,

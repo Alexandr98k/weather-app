@@ -1,5 +1,5 @@
 import styles from './AdditionalCard.module.css';
-import { useWeather } from '../../WeatherContext';
+import { useWeather } from '../../context/WeatherContext';
 import { useTranslation } from 'react-i18next';
 
 const AdditionalCard = function ({ num, title }) {

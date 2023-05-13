@@ -1,4 +1,4 @@
-import { useWeather } from '../../WeatherContext';
+import { useWeather } from '../../context/WeatherContext';
 import styles from './AdditionalInfoBanner2.module.css';
 import humidity from '../../assets/images/humidity.png';
 import { useTranslation } from 'react-i18next';

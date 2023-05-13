@@ -1,6 +1,6 @@
 import styles from './Form.module.css';
 import { useState } from 'react';
-import { useWeatherDispatch } from '../../WeatherContext';
+import { useWeatherDispatch } from '../../context/WeatherContext';
 //helper functions
 import getCityData from '../../helpers/getCityData';
 import getWeatherData from '../../helpers/getWeatherData';

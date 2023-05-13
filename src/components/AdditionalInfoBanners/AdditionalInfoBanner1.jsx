@@ -1,4 +1,4 @@
-import { useWeather } from '../../WeatherContext';
+import { useWeather } from '../../context/WeatherContext';
 import styles from './AdditionalInfoBanner1.module.css';
 import compass from '../../assets/images/compass.png';
 import { useTranslation } from 'react-i18next';

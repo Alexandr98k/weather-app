@@ -27,6 +27,9 @@
 .input:focus::placeholder {
   color: var(--text-color);
 }
+.input::placeholder {
+  font-size: 14px;
+}
 
 .button svg {
   color: var(--text-color);

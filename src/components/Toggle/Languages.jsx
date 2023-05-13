@@ -1,20 +1,13 @@
 import { useState } from 'react';
 import i18n from '../../i18n';
+import useLanguageHook from '../../hooks/useLanguageHook';
 import { languages } from '../../config';
 import styles from './Languages.module.css';
 
 const Languages = function () {
   const [activeBtn, setActiveBtn] = useState(0);
 
-  let selectedLanguage = null;
-  const languageValueInls = localStorage.getItem('i18nextLng');
-
-  !languageValueInls && (selectedLanguage = 'ua');
-
-  if (languageValueInls) {
-    const from = languageValueInls.search('-') + 1;
-    selectedLanguage = languageValueInls.substring(from, languageValueInls.length);
-  }
+  useLanguageHook(setActiveBtn, languages);
 
   const handleBtnClick = function (btn, i) {
     const selectedLanguage = btn;

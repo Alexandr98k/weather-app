@@ -1,6 +1,6 @@
 import styles from './MainBanner.module.css';
 import MainCard from './MainCard';
-import AdditionalCard from '../UI/AdditionalCard';
+import AdditionalCard from './AdditionalCard';
 import Toggle from '../Toggle/Toggle';
 import { useTranslation } from 'react-i18next';
 

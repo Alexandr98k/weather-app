@@ -5,10 +5,14 @@ export const ThemeDispatchContext = createContext(null);
 
 const themeReducer = function (state, action) {
   switch (action.type) {
-    case 'TOGGLE_THEME': {
+    case 'light': {
       return {
-        ...state,
-        theme: state.theme === 'light' ? 'dark' : 'light',
+        theme: 'light',
+      };
+    }
+    case 'dark': {
+      return {
+        theme: 'dark',
       };
     }
     default: {

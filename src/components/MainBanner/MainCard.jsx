@@ -1,4 +1,4 @@
-import { useWeather } from '../../WeatherContext';
+import { useWeather } from '../../context/WeatherContext';
 import styles from './MainCard.module.css';
 import windImage from '../../assets/images/wind.png';
 import pressureImage from '../../assets/images/pressure.png';

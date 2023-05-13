@@ -1,6 +1,7 @@
 import styles from './ThemeCard.module.css';
-import { useThemeDispatch } from '../../ThemeContext';
-import { useTheme } from '../../ThemeContext';
+import { useThemeDispatch } from '../../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
+import useThemeHook from '../../hooks/useThemeHook';
 import sunImage from '../../assets/images/icons/sun.svg';
 import moonImage from '../../assets/images/icons/moon.svg';
 
@@ -8,9 +9,12 @@ const ThemeCard = function ({ setCurTheme }) {
   const dispatch = useThemeDispatch();
   const { theme } = useTheme();
 
+  useThemeHook(setCurTheme, dispatch);
+
   const btnClickHandler = function () {
-    dispatch({ type: 'TOGGLE_THEME' });
+    dispatch({ type: theme === 'dark' ? 'light' : 'dark' });
     setCurTheme(theme === 'dark' ? 'light' : 'dark');
+    localStorage.setItem('theme', theme === 'dark' ? 'light' : 'dark');
   };
 
   return (
