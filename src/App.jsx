@@ -21,8 +21,6 @@ function App() {
   const { theme } = useTheme();
   const [curTheme, setCurTheme] = useState(theme);
 
-  console.log(['app'], theme);
-
   const isMovedToggle = useMoveToggleComponent();
 
   return (
