@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { WeatherProvider } from './context/WeatherContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { useTheme } from './context/ThemeContext';
@@ -20,8 +20,10 @@ function App() {
   const { theme } = useTheme();
   const [curTheme, setCurTheme] = useState(theme);
 
-  //
-  defineHeightMobileDisplay();
+  //fix height on mobile
+  useEffect(() => {
+    defineHeightMobileDisplay();
+  }, []);
 
   //Define if the toggle block needs to be moved to a different place in markup
   const isMovedToggle = useMoveToggleComponent();
