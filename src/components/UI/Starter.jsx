@@ -9,15 +9,14 @@ const Starter = function ({
   setIsError,
   setIsLoaded,
   setFirstEnter,
-  setCurrentTheme,
   isError,
+  setCurTheme,
 }) {
   const { t } = useTranslation();
   return (
     <div className={styles.starter}>
-      {/* <ThemeCard isStarterThemeIcon={true} setCurrentTheme={setCurrentTheme} /> */}
       <div className={styles.container}>
-        <Toggle setCurrentTheme={setCurrentTheme} />
+        <Toggle setCurTheme={setCurTheme} />
         <h2 className={styles.title}>{t('starter.title')}</h2>
         <p className={styles.icons}>🌤️🌞☁️🌡️</p>
         <Form

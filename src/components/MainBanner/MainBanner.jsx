@@ -4,7 +4,7 @@ import AdditionalCard from '../UI/AdditionalCard';
 import Toggle from '../Toggle/Toggle';
 import { useTranslation } from 'react-i18next';
 
-const MainBanner = function ({ setCurrentTheme, isMovedToggle }) {
+const MainBanner = function ({ isMovedToggle, setCurTheme }) {
   const mainCards = [{ type: 'Wind' }, { type: 'Pressure' }, { type: 'Sunrise and sunset' }];
   const additionalCards = [{ type: 'Feels like' }, { type: 'Cloudiness' }];
 
@@ -14,7 +14,7 @@ const MainBanner = function ({ setCurrentTheme, isMovedToggle }) {
     <div className={styles.container}>
       <div className={styles['top-container']}>
         <h2 className={styles.title}>{t('main-banner.title')}</h2>
-        {!isMovedToggle && <Toggle setCurrentTheme={setCurrentTheme} />}
+        {!isMovedToggle && <Toggle setCurTheme={setCurTheme} />}
       </div>
       <div className={styles['card-container']}>
         {mainCards.map((item, i) => {

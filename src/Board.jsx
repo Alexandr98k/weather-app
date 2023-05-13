@@ -9,9 +9,9 @@ const Board = function ({
   setErrorMessage,
   setIsLoaded,
   setFirstEnter,
-  setCurrentTheme,
   isError,
   isMovedToggle,
+  setCurTheme,
 }) {
   return (
     <div className={styles.app}>
@@ -22,9 +22,9 @@ const Board = function ({
         isError={isError}
         setFirstEnter={setFirstEnter}
         isMovedToggle={isMovedToggle}
-        setCurrentTheme={setCurrentTheme}
+        setCurTheme={setCurTheme}
       />
-      <MainBanner isMovedToggle={isMovedToggle} setCurrentTheme={setCurrentTheme} />
+      <MainBanner setCurTheme={setCurTheme} isMovedToggle={isMovedToggle} />
       <AdditionalInfoBanner1 />
       <AdditionalInfoBanner2 />
     </div>

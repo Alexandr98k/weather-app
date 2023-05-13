@@ -3,16 +3,12 @@ import { createContext, useContext, useReducer } from 'react';
 export const ThemeContext = createContext({ theme: 'light' });
 export const ThemeDispatchContext = createContext(null);
 
-const themeReducer = function (theme, action) {
+const themeReducer = function (state, action) {
   switch (action.type) {
-    case 'light': {
+    case 'TOGGLE_THEME': {
       return {
-        theme: 'light',
-      };
-    }
-    case 'dark': {
-      return {
-        theme: 'dark',
+        ...state,
+        theme: state.theme === 'light' ? 'dark' : 'light',
       };
     }
     default: {
@@ -22,10 +18,10 @@ const themeReducer = function (theme, action) {
 };
 
 export const ThemeProvider = function ({ children }) {
-  const [theme, dispatch] = useReducer(themeReducer, { theme: 'light' });
+  const [state, dispatch] = useReducer(themeReducer, { theme: 'light' });
 
   return (
-    <ThemeContext.Provider value={theme}>
+    <ThemeContext.Provider value={state}>
       <ThemeDispatchContext.Provider value={dispatch}>{children}</ThemeDispatchContext.Provider>
     </ThemeContext.Provider>
   );

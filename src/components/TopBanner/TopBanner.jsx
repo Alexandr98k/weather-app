@@ -10,11 +10,11 @@ const TopBanner = function ({
   isError,
   setFirstEnter,
   isMovedToggle,
-  setCurrentTheme,
+  setCurTheme,
 }) {
   return (
     <div className={styles.container}>
-      {isMovedToggle && <Toggle setCurrentTheme={setCurrentTheme} />}
+      {isMovedToggle && <Toggle setCurTheme={setCurTheme} />}
       <Form
         isError={isError}
         setIsError={setIsError}

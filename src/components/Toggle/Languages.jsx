@@ -18,7 +18,6 @@ const Languages = function () {
 
   const handleBtnClick = function (btn, i) {
     const selectedLanguage = btn;
-    console.log('[selectedLanguage]', selectedLanguage);
 
     i18n.changeLanguage(selectedLanguage);
     localStorage.setItem('i18nextLng', selectedLanguage);

@@ -19,18 +19,16 @@ function App() {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
   const { theme } = useTheme();
-  const [currentTheme, setCurrentTheme] = useState(theme);
+  const [curTheme, setCurTheme] = useState(theme);
 
-  //визначаємо висоту екрану на мобілці і фіксимо баг з панелю
-  // useEffect(() => {
-  //   defineHeightMobileDisplay();
-  // }, []);
+  console.log(['app'], theme);
+
   const isMovedToggle = useMoveToggleComponent();
 
   return (
-    <div className={`app ${currentTheme === 'dark' ? 'dark' : 'light'}`}>
+    <WeatherProvider>
       <ThemeProvider>
-        <WeatherProvider>
+        <div className={`app ${curTheme === 'dark' ? 'dark' : 'light'}`}>
           {isError && (
             <Fragment>
               <Modal errorMessage={errorMessage} setIsError={setIsError} />
@@ -45,27 +43,27 @@ function App() {
           )}
           {firstEnter ? (
             <Starter
-              setCurrentTheme={setCurrentTheme}
               setIsError={setIsError}
               setErrorMessage={setErrorMessage}
               setIsLoaded={setIsLoaded}
               setFirstEnter={setFirstEnter}
               isError={isError}
+              setCurTheme={setCurTheme}
             />
           ) : (
             <Board
               isMovedToggle={isMovedToggle}
               isError={isError}
-              setCurrentTheme={setCurrentTheme}
               setIsError={setIsError}
               setErrorMessage={setErrorMessage}
               setIsLoaded={setIsLoaded}
               setFirstEnter={setFirstEnter}
+              setCurTheme={setCurTheme}
             />
           )}
-        </WeatherProvider>
+        </div>
       </ThemeProvider>
-    </div>
+    </WeatherProvider>
   );
 }
 
