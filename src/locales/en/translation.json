@@ -30,5 +30,13 @@
     "title": "Humidity:",
     "text-1": "Humidity is the concentration of water vapor present in the air. Water vapor, the gaseous state of water, is generally invisible to the human eye.",
     "text-2": "The same amount of water vapor results in higher relative humidity in cool air than warm air."
+  },
+  "errors": {
+    "coordsIssue": "Problem with getting the weather by coordinates!",
+    "nameIssue": "Problem with getting coordinates by name of city!",
+    "falseName": "Entered name of city not found!",
+    "requestTookTooLong": "Request took too long!",
+    "offline": "You are offline. Please make sure you have turned on your internet connection!",
+    "emptyInput": "You didn't write anything!"
   }
 }

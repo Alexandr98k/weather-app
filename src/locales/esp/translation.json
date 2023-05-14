@@ -30,5 +30,13 @@
     "title": "Humedad:",
     "text-1": "La humedad es la concentración de vapor de agua en el aire. Vapor de agua, el estado gaseoso del agua, generalmente invisible al ojo humano.",
     "text-2": "Se anota la cantidad de vapor de agua a mayor humedad relativa del aire frío que del aire caliente."
+  },
+  "errors": {
+    "coordsIssue": "Problema con obtener el clima por coordenadas!",
+    "nameIssue": "Problema con obtener coordenadas por nombre de ciudad!",
+    "falseName": "Nombre ingresado de la ciudad no encontrado!",
+    "requestTookTooLong": "La solicitud tardó demasiado!",
+    "offline": "Estas desconectado. Por favor, asegúrese de haber activado su conexión a Internet.!",
+    "emptyInput": "No escribiste nada!"
   }
 }

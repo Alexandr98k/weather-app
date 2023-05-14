@@ -2,6 +2,7 @@ import { TIMEOUT_SEC } from './../config';
 import { timeout, convertTime } from './../helper';
 import getCurrentTime from './getCurrentTime';
 import getDate from './getDate';
+import translateErrors from './translateErrors';
 //Second AJAX CALL
 const getWeatherData = async function (value, key) {
   try {
@@ -10,7 +11,7 @@ const getWeatherData = async function (value, key) {
     const resWeather = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
 
     if (!resWeather.ok) {
-      throw new Error('Problem with getting the weather by coordinates');
+      throw new Error(translateErrors('coordsIssue'));
     }
 
     const data = await resWeather.json();

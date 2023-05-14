@@ -1,5 +1,6 @@
 import { TIMEOUT_SEC } from './../config';
 import { timeout } from './../helper';
+import translateErrors from './translateErrors';
 //get coords and name of city
 const getCityData = async function (value, key) {
   try {
@@ -8,13 +9,13 @@ const getCityData = async function (value, key) {
     const resCoords = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
 
     if (!resCoords.ok) {
-      throw new Error('Problem with getting coordinates by name of city');
+      throw new Error(translateErrors('nameIssue'));
     }
 
     const data = await resCoords.json();
 
     if (data.length === 0) {
-      throw new Error('Entered name of city not found!');
+      throw new Error(translateErrors('falseName'));
     }
 
     return {
