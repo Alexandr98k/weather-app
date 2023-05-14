@@ -35,6 +35,11 @@ body {
   font-size: 16px;
   font-family: Inter, Arial, sans-serif;
 }
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
 
 #root {
   max-width: 1200px;
@@ -47,9 +52,4 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
 }

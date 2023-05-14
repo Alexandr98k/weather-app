@@ -36,7 +36,7 @@
     "nameIssue": "Problema con obtener coordenadas por nombre de ciudad!",
     "falseName": "Nombre ingresado de la ciudad no encontrado!",
     "requestTookTooLong": "La solicitud tardó demasiado!",
-    "offline": "Estas desconectado. Por favor, asegúrese de haber activado su conexión a Internet.!",
+    "offline": "Estas desconectado. Por favor, asegúrese de haber activado su conexión a Internet!",
     "emptyInput": "No escribiste nada!"
   }
 }

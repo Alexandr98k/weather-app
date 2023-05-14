@@ -1,5 +1,6 @@
 import { secondsInOneHour } from '../config';
 
+//get current time base on offset zone
 const getCurrentTime = function (timezone) {
   const myTimeNow = new Date();
   //В об'єкті опцій передаємо часову зону, щоб не просто була інтернаціоналізація, а й відобразився час з цієї чосової зони

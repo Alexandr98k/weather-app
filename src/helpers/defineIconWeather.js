@@ -45,6 +45,7 @@ const getImagePath = function (day, cloudy, description1, description2) {
       return partlyCloudyNight;
     }
   }
+
   if (description2 === 'overcast clouds') {
     return overcast;
   }
