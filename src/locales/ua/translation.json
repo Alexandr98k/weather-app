@@ -38,5 +38,27 @@
     "requestTookTooLong": "Запит тривав занадто довго!",
     "offline": "Ви оффлайн. Будь ласка впевніться, що ви увімкнули інтернет з'єднання!",
     "emptyInput": "Ви нічого не написали!"
+  },
+  "weatherDescription2": {
+    "clearSky": "Чисте небо",
+    "fewClouds": "Декілька хмар",
+    "overcastClouds": "Похмурі хмари",
+    "scatteredClouds": "Розсіяні хмари",
+    "brokenClouds": "Розірвані хмари"
+  },
+  "weatherDescription1": {
+    "drizzle": "Легкий дощ",
+    "rain": "Дощ",
+    "thunderstorm": "Гроза",
+    "snow": "Сніг",
+    "tornado": "Торнадо",
+    "mist": "Імла",
+    "fog": "Туман",
+    "smoke": "Дим",
+    "dust": "Пил",
+    "haze": "Димка",
+    "sand": "Пісок",
+    "ash": "Попіл",
+    "squall": "Шквал"
   }
 }

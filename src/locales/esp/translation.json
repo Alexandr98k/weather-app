@@ -38,5 +38,27 @@
     "requestTookTooLong": "La solicitud tardó demasiado!",
     "offline": "Estas desconectado. Por favor, asegúrese de haber activado su conexión a Internet!",
     "emptyInput": "No escribiste nada!"
+  },
+  "weatherDescription2": {
+    "clearSky": "Cielo limpio",
+    "fewClouds": "Pocas nubes",
+    "overcastClouds": "Nubes nubladas",
+    "scatteredClouds": "Nubes dispersas",
+    "brokenClouds": "Nubes rotas"
+  },
+  "weatherDescription1": {
+    "drizzle": "Llovizna",
+    "rain": "Lluvia",
+    "thunderstorm": "Tormenta",
+    "snow": "Nieve",
+    "tornado": "Tornado",
+    "mist": "Neblina",
+    "fog": "Niebla",
+    "smoke": "Fumar",
+    "dust": "Polvo",
+    "haze": "Calina",
+    "sand": "Arena",
+    "ash": "Ceniza",
+    "squall": "Chubasco"
   }
 }

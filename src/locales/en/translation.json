@@ -38,5 +38,27 @@
     "requestTookTooLong": "Request took too long!",
     "offline": "You are offline. Please make sure you have turned on your internet connection!",
     "emptyInput": "You didn't write anything!"
+  },
+  "weatherDescription2": {
+    "clearSky": "Clear sky",
+    "fewClouds": "Few clouds",
+    "overcastClouds": "Overcast clouds",
+    "scatteredClouds": "Scattered clouds",
+    "brokenClouds": "Broken clouds"
+  },
+  "weatherDescription1": {
+    "drizzle": "Drizzle",
+    "rain": "Rain",
+    "thunderstorm": "Thunderstorm",
+    "snow": "Snow",
+    "tornado": "Tornado",
+    "mist": "Mist",
+    "fog": "Fog",
+    "smoke": "Smoke",
+    "dust": "Dust",
+    "haze": "Haze",
+    "sand": "Sand",
+    "ash": "Ash",
+    "squall": "Squall"
   }
 }

@@ -7,6 +7,7 @@ import useMoveToggleComponent from './hooks/useMoveToggleComponent';
 
 import defineHeightMobileDisplay from './helpers/defineHeightMobileDisplay';
 import translateErrors from './helpers/translateErrors';
+import translateWeatherDescription from './helpers/translateWeatherDescription';
 import LoadingScreen from './components/LoadingScreen';
 import ModalScreen from './components/ModalScreen';
 import Main from './components/Main';
@@ -22,7 +23,6 @@ function App() {
 
   //fix height on mobile
   useEffect(() => {
-    translateErrors();
     defineHeightMobileDisplay();
   }, []);
 

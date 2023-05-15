@@ -17,10 +17,22 @@
   text-align: center;
   margin-bottom: 10px;
 }
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
 .icons {
   font-size: 30px;
   text-align: center;
-  margin-bottom: 10px;
+}
+
+.icons-right {
+  animation: moveLeft 1.5s ease-out;
+}
+.icons-left {
+  animation: moveRight 1.5s ease-out;
 }
 @media (max-width: 768px) {
   .starter {
@@ -37,5 +49,39 @@
   }
   .title {
     font-size: 20px;
+  }
+}
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-280px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(280px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

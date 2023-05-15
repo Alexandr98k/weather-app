@@ -18,7 +18,10 @@ const Starter = function ({
       <div className={styles.container}>
         <Toggle setCurTheme={setCurTheme} />
         <h2 className={styles.title}>{t('starter.title')}</h2>
-        <p className={styles.icons}>🌤️🌞☁️🌡️</p>
+        <div className={styles['icons-container']}>
+          <p className={`${styles.icons} ${styles['icons-right']}`}>🌤️🌞</p>
+          <p className={`${styles.icons} ${styles['icons-left']}`}>☁️🌡️</p>
+        </div>
         <Form
           isError={isError}
           setIsError={setIsError}

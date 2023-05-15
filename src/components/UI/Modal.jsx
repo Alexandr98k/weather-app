@@ -1,8 +1,8 @@
 import defineTypeError from '../../helpers/defineTypeError';
 import styles from './Modal.module.css';
 import { ReactComponent as DefaultErrorIcon } from '../../assets/images/error-icons/default-error.svg';
-import { ReactComponent as EmptyErrorIcon } from '../../assets/images/error-icons/false-error.svg';
-import { ReactComponent as FalseErrorIcon } from '../../assets/images/error-icons/empty-error.svg';
+import { ReactComponent as FalseErrorIcon } from '../../assets/images/error-icons/false-error.svg';
+import { ReactComponent as EmptyErrorIcon } from '../../assets/images/error-icons/empty-error.svg';
 
 const Modal = function ({ errorMessage, setIsError }) {
   const typeError = defineTypeError(errorMessage);
