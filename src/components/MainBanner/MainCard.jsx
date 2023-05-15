@@ -21,9 +21,7 @@ const MainCard = function ({ num, title }) {
           <p className={styles['big-paragraph']}>
             {weatherData.wind?.windSpeed} <span>{t('main-banner.wind-speed')}</span>
           </p>
-          <p className={styles['big-paragraph']}>
-            {weatherData.wind?.windSide} <span>{t('main-banner.wind-side')}</span>
-          </p>
+          <p className={styles['big-paragraph']}>{weatherData.wind?.windSide}°</p>
         </div>
       );
       break;

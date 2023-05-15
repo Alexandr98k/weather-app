@@ -2,9 +2,9 @@ import translateEn from '../locales/en/translation.json';
 import translateUa from '../locales/ua/translation.json';
 import translateEsp from '../locales/esp/translation.json';
 
-//Спробувати зробити, щоб можн було записати імпортовану змінну динамічно, скоротивши код в тричі
 const translateWeatherDescription = function (descr1, descr2) {
   const lang = localStorage.getItem('i18nextLng');
+  console.log(lang);
   if (lang === 'ua') {
     if (descr2 === 'clear sky') {
       return translateUa.weatherDescription2.clearSky;
@@ -35,9 +35,6 @@ const translateWeatherDescription = function (descr1, descr2) {
     }
     if (descr1 === 'Tornado') {
       return translateUa.weatherDescription1.tornado;
-    }
-    if (descr1 === 'Mist') {
-      return translateUa.weatherDescription1.mist;
     }
     if (descr1 === 'Mist') {
       return translateUa.weatherDescription1.mist;
@@ -98,9 +95,6 @@ const translateWeatherDescription = function (descr1, descr2) {
     if (descr1 === 'Mist') {
       return translateEn.weatherDescription1.mist;
     }
-    if (descr1 === 'Mist') {
-      return translateEn.weatherDescription1.mist;
-    }
     if (descr1 === 'Fog') {
       return translateEn.weatherDescription1.fog;
     }
@@ -153,9 +147,6 @@ const translateWeatherDescription = function (descr1, descr2) {
     }
     if (descr1 === 'Tornado') {
       return translateEsp.weatherDescription1.tornado;
-    }
-    if (descr1 === 'Mist') {
-      return translateEsp.weatherDescription1.mist;
     }
     if (descr1 === 'Mist') {
       return translateEsp.weatherDescription1.mist;

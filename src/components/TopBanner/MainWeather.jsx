@@ -3,9 +3,9 @@ import { useWeather } from '../../context/WeatherContext';
 
 import getImagePath from '../../helpers/defineIconWeather';
 import translateWeatherDescription from '../../helpers/translateWeatherDescription';
-import descriptionIcon from '../../assets/images/icons/weather.svg';
-import locationIcon from '../../assets/images/icons/location.svg';
-import calendarIcon from '../../assets/images/icons/calendar.svg';
+import { ReactComponent as WeatherIcon } from '../../assets/images/icons/weather.svg';
+import { ReactComponent as LocationIcon } from '../../assets/images/icons/location.svg';
+import { ReactComponent as CalendarIcon } from '../../assets/images/icons/calendar.svg';
 import { useTranslation } from 'react-i18next';
 
 const MainWeather = function () {
@@ -21,21 +21,17 @@ const MainWeather = function () {
         <img className={styles['weather-image']} src={imagePath} alt="Weather icon" />
         <h2 className={styles.temperature}>{temp} ℃</h2>
         <div className={styles['clouds-description']}>
-          <img
-            className={styles['image-description']}
-            src={descriptionIcon}
-            alt="Description icon"
-          />
+          <WeatherIcon className={styles['image-description']} />
           <p className={styles.description}>{t(translatedDescription)}</p>
         </div>
       </div>
       <div className={styles['bottom-container']}>
         <div className={styles['flex']}>
-          <img className={styles['location-icon']} src={locationIcon} alt="Location icon" />
+          <LocationIcon className={styles['location-icon']} />
           <p>{location}</p>
         </div>
         <div className={styles['flex']}>
-          <img className={styles['calendar-icon']} src={calendarIcon} alt="Calendar icon" />
+          <CalendarIcon className={styles['calendar-icon']} />
           <p style={{ marginLeft: '6px' }}>{date}</p>
         </div>
       </div>

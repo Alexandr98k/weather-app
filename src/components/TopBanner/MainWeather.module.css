@@ -24,6 +24,8 @@
 }
 .image-description {
   width: 20px;
+  height: 20px;
+  color: var(--text-color);
 }
 .bottom-container {
   padding: 20px 0 0;
@@ -38,12 +40,15 @@
 
 .location-icon {
   width: 20px;
+  height: 20px;
+  color: var(--text-color);
 }
 
 .calendar-icon {
   width: 15px;
   height: 15px;
   margin-left: 2px;
+  color: var(--text-color);
 }
 
 @media (max-width: 768px) {
@@ -61,6 +66,7 @@
   }
   .image-description {
     width: 30px;
+    height: 30px;
   }
   .top-container {
     position: relative;
@@ -83,6 +89,7 @@
   }
   .location-icon {
     width: 30px;
+    height: 30px;
   }
 
   .calendar-icon {
