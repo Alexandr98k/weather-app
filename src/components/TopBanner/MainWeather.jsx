@@ -2,7 +2,6 @@ import styles from './MainWeather.module.css';
 import { useWeather } from '../../context/WeatherContext';
 
 import getImagePath from '../../helpers/defineIconWeather';
-import translateWeatherDescription from '../../helpers/translateWeatherDescription';
 import { ReactComponent as WeatherIcon } from '../../assets/images/icons/weather.svg';
 import { ReactComponent as LocationIcon } from '../../assets/images/icons/location.svg';
 import { ReactComponent as CalendarIcon } from '../../assets/images/icons/calendar.svg';
@@ -10,10 +9,18 @@ import { useTranslation } from 'react-i18next';
 
 const MainWeather = function () {
   const { t } = useTranslation();
-  const { time, cloudy, description1, description2, temp, date, location } = useWeather();
+  const {
+    time,
+    cloudy,
+    temp,
+    date,
+    location,
+    description1,
+    description2,
+    translateWeatherDescription,
+  } = useWeather();
   const day = time >= 6 && time <= 20;
   const imagePath = getImagePath(day, cloudy, description1, description2);
-  const translatedDescription = translateWeatherDescription(description1, description2);
 
   return (
     <div className={styles['container']}>
@@ -22,7 +29,9 @@ const MainWeather = function () {
         <h2 className={styles.temperature}>{temp} ℃</h2>
         <div className={styles['clouds-description']}>
           <WeatherIcon className={styles['image-description']} />
-          <p className={styles.description}>{t(translatedDescription)}</p>
+          <p className={styles.description}>
+            {translateWeatherDescription(description1, description2)}
+          </p>
         </div>
       </div>
       <div className={styles['bottom-container']}>
