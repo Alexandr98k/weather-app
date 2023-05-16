@@ -59,5 +59,28 @@
     "sand": "Sand",
     "ash": "Ash",
     "squall": "Squall"
+  },
+  "daysOfWeek": {
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat",
+    "7": "Sun"
+  },
+  "months": {
+    "0": "Jan",
+    "1": "Feb",
+    "2": "Mar",
+    "3": "Apr",
+    "4": "Mai",
+    "5": "Jun",
+    "6": "Jul",
+    "7": "Aug",
+    "8": "Sep",
+    "9": "Oct",
+    "10": "Now",
+    "11": "Dec"
   }
 }

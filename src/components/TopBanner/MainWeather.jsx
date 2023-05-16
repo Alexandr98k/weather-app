@@ -1,6 +1,8 @@
 import styles from './MainWeather.module.css';
 import { useWeather } from '../../context/WeatherContext';
 
+import translateWeatherDescription from '../../helpers/translateWeatherDescription';
+import translateDate from '../../helpers/translateDate';
 import getImagePath from '../../helpers/defineIconWeather';
 import { ReactComponent as WeatherIcon } from '../../assets/images/icons/weather.svg';
 import { ReactComponent as LocationIcon } from '../../assets/images/icons/location.svg';
@@ -9,18 +11,10 @@ import { useTranslation } from 'react-i18next';
 
 const MainWeather = function () {
   const { t } = useTranslation();
-  const {
-    time,
-    cloudy,
-    temp,
-    date,
-    location,
-    description1,
-    description2,
-    translateWeatherDescription,
-  } = useWeather();
+  const { time, cloudy, temp, location, description1, description2, timezone } = useWeather();
   const day = time >= 6 && time <= 20;
   const imagePath = getImagePath(day, cloudy, description1, description2);
+  const dateString = translateDate(timezone);
 
   return (
     <div className={styles['container']}>
@@ -41,7 +35,7 @@ const MainWeather = function () {
         </div>
         <div className={styles['flex']}>
           <CalendarIcon className={styles['calendar-icon']} />
-          <p style={{ marginLeft: '6px' }}>{date}</p>
+          <p style={{ marginLeft: '6px' }}>{dateString}</p>
         </div>
       </div>
     </div>

@@ -1,21 +1,28 @@
-const getDate = function (timezone) {
+const getDate = function (timeZoneOffset) {
   const myTimeNow = new Date();
-  //В об'єкті опцій передаємо часову зону, щоб не просто була інтернаціоналізація, а й відобразився час з цієї чосової зони
-  const londonDate = new Intl.DateTimeFormat({
-    timeZone: 'Europe/London',
-    weekday: 'short',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(myTimeNow);
+  const londonDateTime = myTimeNow.toLocaleString('en-GB', { timeZone: 'Europe/London' });
+  const londonDateTimeArr = londonDateTime.split(', ');
+  const londonDate = londonDateTimeArr[0].split('/');
+  const londonTime = londonDateTimeArr[1].split(':');
 
-  console.log(londonDate);
-  return londonDate;
+  const object = {
+    year: +londonDate[2],
+    month: londonDate[1].slice(1) - 1,
+    date: +londonDate[0],
+    hour: +londonTime[0] - 1,
+  };
+  const { year, month, date, hour } = object;
 
-  // const timezoneOffset = timezone; // offset in seconds
-  // const now = new Date();
-  // const currentTime = new Date(now.getTime() + timezoneOffset * 1000); // add offset in milliseconds
+  const londonDateTimeObject = new Date(year, month, date, hour);
 
-  // console.log(currentTime.toLocaleString()); // outputs the current date and time in local time zone with format "MM/DD/YYYY, hh:mm:ss AM/PM"
+  const timeZoneTime = new Date(londonDateTimeObject.getTime() + timeZoneOffset * 1000);
+
+  return {
+    localDate: timeZoneTime.getDate(),
+    localMonth: timeZoneTime.getMonth(),
+    localYear: timeZoneTime.getFullYear(),
+    localHours: timeZoneTime.getHours(),
+    localDay: timeZoneTime.getDay(),
+  };
 };
 export default getDate;

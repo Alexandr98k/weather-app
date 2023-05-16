@@ -1,9 +1,6 @@
 import { TIMEOUT_SEC } from './../config';
 import { timeout, convertTime } from './../helper';
-import getCurrentTime from './getCurrentTime';
-import getDate from './getDate';
 import translateErrors from './translateErrors';
-import translateWeatherDescription from './translateWeatherDescription';
 //Second AJAX CALL
 const getWeatherData = async function (value, key) {
   try {
@@ -16,8 +13,7 @@ const getWeatherData = async function (value, key) {
     }
 
     const data = await resWeather.json();
-
-    translateWeatherDescription();
+    console.log(data);
 
     return {
       lat: value.lat.toFixed(4),
@@ -35,10 +31,8 @@ const getWeatherData = async function (value, key) {
       description1: data.weather[0].main,
       description2: data.weather[0].description,
       cloudy: data.clouds.all,
+      timezone: data.timezone,
       location: `${value.name}, ${data.sys.country}`,
-      time: getCurrentTime(data.timezone),
-      date: getDate(),
-      translateWeatherDescription,
     };
   } catch (error) {
     throw error;
