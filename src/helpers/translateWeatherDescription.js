@@ -4,7 +4,6 @@ import translateEsp from '../locales/esp/translation.json';
 
 const translateWeatherDescription = function (descr1, descr2) {
   const lang = localStorage.getItem('i18nextLng');
-  console.log(lang);
   if (lang === 'ua') {
     if (descr2 === 'clear sky') {
       return translateUa.weatherDescription2.clearSky;

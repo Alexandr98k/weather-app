@@ -1,16 +1,15 @@
 const getDate = function (timezone) {
   const myTimeNow = new Date();
   //В об'єкті опцій передаємо часову зону, щоб не просто була інтернаціоналізація, а й відобразився час з цієї чосової зони
-  const londonDate = new Intl.DateTimeFormat('en-GB', {
+  const londonDate = new Intl.DateTimeFormat({
     timeZone: 'Europe/London',
     weekday: 'short',
-    month: 'long',
     day: 'numeric',
+    month: 'long',
     year: 'numeric',
-    hours: 'full',
   }).format(myTimeNow);
 
-  //It NEEDS to be fixed!!!
+  console.log(londonDate);
   return londonDate;
 
   // const timezoneOffset = timezone; // offset in seconds

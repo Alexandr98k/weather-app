@@ -25,7 +25,7 @@
     grid-area: 3 / 1 / 5 / 1;
   }
   .card-container {
-    grid-template-rows: repeat(3, 83px);
+    grid-template-rows: repeat(3, 86px);
   }
 }
 
