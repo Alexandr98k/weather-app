@@ -31,6 +31,9 @@ const translateDate = function (timezone) {
   const date = dateObj.localDate;
   const year = dateObj.localYear;
 
-  return `${dayWeek}, ${month} ${date}, ${year}`;
+  return {
+    hours: dateObj.localHours,
+    dateString: `${dayWeek}, ${month} ${date}, ${year}`,
+  };
 };
 export default translateDate;

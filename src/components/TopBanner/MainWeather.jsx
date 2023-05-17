@@ -1,20 +1,17 @@
 import styles from './MainWeather.module.css';
 import { useWeather } from '../../context/WeatherContext';
-
 import translateWeatherDescription from '../../helpers/translateWeatherDescription';
 import translateDate from '../../helpers/translateDate';
 import getImagePath from '../../helpers/defineIconWeather';
 import { ReactComponent as WeatherIcon } from '../../assets/images/icons/weather.svg';
 import { ReactComponent as LocationIcon } from '../../assets/images/icons/location.svg';
 import { ReactComponent as CalendarIcon } from '../../assets/images/icons/calendar.svg';
-import { useTranslation } from 'react-i18next';
 
 const MainWeather = function () {
-  const { t } = useTranslation();
-  const { time, cloudy, temp, location, description1, description2, timezone } = useWeather();
-  const day = time >= 6 && time <= 20;
+  const { cloudy, temp, location, description1, description2, timezone } = useWeather();
+  const { dateString, hours } = translateDate(timezone);
+  const day = hours >= 6 && hours <= 20;
   const imagePath = getImagePath(day, cloudy, description1, description2);
-  const dateString = translateDate(timezone);
 
   return (
     <div className={styles['container']}>

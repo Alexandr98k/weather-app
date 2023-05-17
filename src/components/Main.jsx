@@ -4,7 +4,6 @@ import { Fragment } from 'react';
 
 const Main = function ({
   firstEnter,
-  isMovedToggle,
   isError,
   setIsError,
   setErrorMessage,
@@ -25,7 +24,6 @@ const Main = function ({
         />
       ) : (
         <Board
-          isMovedToggle={isMovedToggle}
           isError={isError}
           setIsError={setIsError}
           setErrorMessage={setErrorMessage}

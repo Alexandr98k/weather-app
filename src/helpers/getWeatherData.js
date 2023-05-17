@@ -13,7 +13,6 @@ const getWeatherData = async function (value, key) {
     }
 
     const data = await resWeather.json();
-    console.log(data);
 
     return {
       lat: value.lat.toFixed(4),

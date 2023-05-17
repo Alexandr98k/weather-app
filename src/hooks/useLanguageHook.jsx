@@ -1,16 +1,14 @@
 import { useEffect } from 'react';
 const useLanguageHook = function (setActiveBtn, languages) {
   let index;
+  let selectedLang;
 
-  let selectedLanguage;
-  const languageValueInls = localStorage.getItem('i18nextLng');
+  const langValInls = localStorage.getItem('i18nextLng');
+  if (!langValInls) selectedLang = 'ua';
 
-  !languageValueInls && (selectedLanguage = 'ua');
-
-  if (languageValueInls) {
-    const from = languageValueInls.search('-') + 1;
-    selectedLanguage = languageValueInls.substring(from, languageValueInls.length);
-    index = languages.findIndex((lang) => lang === selectedLanguage);
+  if (langValInls) {
+    selectedLang = langValInls;
+    index = languages.findIndex((lang) => lang === selectedLang);
   }
 
   useEffect(() => {

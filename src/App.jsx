@@ -3,11 +3,8 @@ import { useState, useEffect } from 'react';
 import { WeatherProvider } from './context/WeatherContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { useTheme } from './context/ThemeContext';
-import useMoveToggleComponent from './hooks/useMoveToggleComponent';
 
 import defineHeightMobileDisplay from './helpers/defineHeightMobileDisplay';
-import translateErrors from './helpers/translateErrors';
-import translateWeatherDescription from './helpers/translateWeatherDescription';
 import LoadingScreen from './components/LoadingScreen';
 import ModalScreen from './components/ModalScreen';
 import Main from './components/Main';
@@ -26,9 +23,6 @@ function App() {
     defineHeightMobileDisplay();
   }, []);
 
-  //Define if the toggle block needs to be moved to a different place in markup
-  const isMovedToggle = useMoveToggleComponent();
-
   return (
     <WeatherProvider>
       <ThemeProvider>
@@ -43,7 +37,6 @@ function App() {
             setFirstEnter={setFirstEnter}
             isError={isError}
             setCurTheme={setCurTheme}
-            isMovedToggle={isMovedToggle}
           />
         </div>
       </ThemeProvider>

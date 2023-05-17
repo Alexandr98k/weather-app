@@ -3,6 +3,7 @@ import TopBanner from '../TopBanner/TopBanner';
 import MainBanner from '../MainBanner/MainBanner';
 import AdditionalInfoBanner1 from '../AdditionalInfoBanners/AdditionalInfoBanner1';
 import AdditionalInfoBanner2 from '../AdditionalInfoBanners/AdditionalInfoBanner2';
+import isMovedToggle from '../../hooks/useMoveToggleComponent';
 
 const Board = function ({
   setIsError,
@@ -10,9 +11,9 @@ const Board = function ({
   setIsLoaded,
   setFirstEnter,
   isError,
-  isMovedToggle,
   setCurTheme,
 }) {
+  const moveToggle = isMovedToggle();
   return (
     <div className={styles.app}>
       <TopBanner
@@ -21,10 +22,10 @@ const Board = function ({
         setIsLoaded={setIsLoaded}
         isError={isError}
         setFirstEnter={setFirstEnter}
-        isMovedToggle={isMovedToggle}
+        isMovedToggle={moveToggle}
         setCurTheme={setCurTheme}
       />
-      <MainBanner setCurTheme={setCurTheme} isMovedToggle={isMovedToggle} />
+      <MainBanner setCurTheme={setCurTheme} isMovedToggle={moveToggle} />
       <AdditionalInfoBanner1 />
       <AdditionalInfoBanner2 />
     </div>
