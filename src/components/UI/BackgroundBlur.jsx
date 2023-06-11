@@ -1,7 +1,9 @@
 import styles from './BackgroundBlur.module.css';
+import { useErrorDispatch } from '../../context/ErrorContext';
 
-const BackgroundBlur = function ({ setIsError }) {
-  return <div className={styles.backdrop} onClick={() => setIsError(false)}></div>;
+const BackgroundBlur = function () {
+  const dispatch = useErrorDispatch();
+  return <div className={styles.backdrop} onClick={() => dispatch({ type: 'noError' })}></div>;
 };
 
 export default BackgroundBlur;

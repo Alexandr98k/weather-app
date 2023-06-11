@@ -1,6 +1,8 @@
 import styles from './Form.module.css';
 import { useState } from 'react';
 import { useWeatherDispatch } from '../../context/WeatherContext';
+import { useErrorDispatch } from '../../context/ErrorContext';
+import { useError } from '../../context/ErrorContext';
 //helper functions
 import getCityData from '../../helpers/getCityData';
 import getWeatherData from '../../helpers/getWeatherData';
@@ -8,23 +10,21 @@ import { checkInternetConnection } from '../../helper';
 import { checkInputEmpty } from '../../helper';
 import { useTranslation } from 'react-i18next';
 
-const Form = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter, isError }) {
+const Form = function ({ setIsLoaded, setFirstEnter }) {
   const [inputValue, setInputValue] = useState('');
   const { t } = useTranslation();
   const API_KEY = import.meta.env.VITE_API_KEY;
 
-  const dispatch = useWeatherDispatch();
+  const dispatchWeather = useWeatherDispatch();
+  const dispatchError = useErrorDispatch();
+  const errorData = useError();
 
   const handleFormSubmit = async function (e) {
     //use iife for wrapping handle-submit form async function
     try {
       e.preventDefault();
       e.stopPropagation();
-
-      //reset states and starts loader
       setIsLoaded(true);
-      setIsError(false);
-      setErrorMessage('');
 
       //check if internet connection is online
       checkInternetConnection();
@@ -38,14 +38,14 @@ const Form = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter
       //Second AJAX-CALL - getting weather by name
       const weatherData = await getWeatherData(cityData, API_KEY);
 
-      dispatch({ type: 'adding', value: weatherData });
+      dispatchWeather({ type: 'adding', value: weatherData });
 
       setIsLoaded(false);
       setFirstEnter(false);
     } catch (error) {
       console.error('Error caught here:', error.message);
-      setIsError(true);
-      setErrorMessage(error.message);
+
+      dispatchError({ type: 'error', value: error.message });
       setIsLoaded(false);
     }
   };
@@ -58,7 +58,7 @@ const Form = function ({ setIsError, setErrorMessage, setIsLoaded, setFirstEnter
         value={inputValue}
         type="text"
         placeholder={t('form.input')}
-        disabled={isError}
+        disabled={errorData.isError}
       />
       <button type="submit" className={styles.button}>
         <svg

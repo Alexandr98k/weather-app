@@ -1,11 +1,16 @@
-import { Fragment } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import BackgroundBlur from './UI/BackgroundBlur';
 import Modal from './UI/Modal';
-const ModalScreen = function ({ errorMessage, setIsError }) {
+import { CSSTransition } from 'react-transition-group';
+
+const ModalScreen = function () {
+  const nodeRef = useRef(null);
   return (
     <Fragment>
-      <Modal errorMessage={errorMessage} setIsError={setIsError} />
-      <BackgroundBlur setIsError={setIsError} />
+      <CSSTransition in={isAnimate} classNames="modal" timeout={5000}>
+        <Modal />
+      </CSSTransition>
+      <BackgroundBlur />
     </Fragment>
   );
 };

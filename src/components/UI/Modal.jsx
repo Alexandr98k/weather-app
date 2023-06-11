@@ -1,11 +1,16 @@
 import defineTypeError from '../../helpers/defineTypeError';
 import styles from './Modal.module.css';
+import { useErrorDispatch } from '../../context/ErrorContext';
+import { useError } from '../../context/ErrorContext';
 import { ReactComponent as DefaultErrorIcon } from '../../assets/images/error-icons/default-error.svg';
 import { ReactComponent as FalseErrorIcon } from '../../assets/images/error-icons/false-error.svg';
 import { ReactComponent as EmptyErrorIcon } from '../../assets/images/error-icons/empty-error.svg';
 
-const Modal = function ({ errorMessage, setIsError }) {
-  const typeError = defineTypeError(errorMessage);
+const Modal = function ({ nodeRef }) {
+  const dispatch = useErrorDispatch();
+
+  const errorData = useError();
+  const typeError = defineTypeError(errorData.errorMessage);
   let errorIconComponent;
   if (typeError === 'defaultError') {
     errorIconComponent = <DefaultErrorIcon className={styles.image} />;
@@ -21,8 +26,12 @@ const Modal = function ({ errorMessage, setIsError }) {
   }
 
   return (
-    <div className={styles.modal}>
-      <button className={styles.button} onClick={() => setIsError(false)}>
+    <div ref={nodeRef} className={styles['my-modal']}>
+      <button
+        className={styles.button}
+        onClick={() => {
+          dispatch({ type: 'noError' });
+        }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -37,7 +46,7 @@ const Modal = function ({ errorMessage, setIsError }) {
           />
         </svg>
       </button>
-      <p className={styles.text}>{errorMessage}</p>
+      <p className={styles.text}>{errorData.errorMessage}</p>
       {errorIconComponent}
     </div>
   );

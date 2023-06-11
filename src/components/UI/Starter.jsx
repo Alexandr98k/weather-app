@@ -4,14 +4,7 @@ import Toggle from '../Toggle/Toggle';
 
 import { useTranslation } from 'react-i18next';
 
-const Starter = function ({
-  setErrorMessage,
-  setIsError,
-  setIsLoaded,
-  setFirstEnter,
-  isError,
-  setCurTheme,
-}) {
+const Starter = function ({ setIsLoaded, setFirstEnter, setCurTheme }) {
   const { t } = useTranslation();
   return (
     <div className={styles.starter}>
@@ -22,13 +15,7 @@ const Starter = function ({
           <p className={`${styles.icons} ${styles['icons-right']}`}>🌤️🌞</p>
           <p className={`${styles.icons} ${styles['icons-left']}`}>☁️🌡️</p>
         </div>
-        <Form
-          isError={isError}
-          setIsError={setIsError}
-          setErrorMessage={setErrorMessage}
-          setIsLoaded={setIsLoaded}
-          setFirstEnter={setFirstEnter}
-        />
+        <Form setIsLoaded={setIsLoaded} setFirstEnter={setFirstEnter} />
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ import getDate from './getDate';
 const translateDate = function (timezone) {
   const lang = localStorage.getItem('i18nextLng');
   const dateObj = getDate(timezone);
-
   let dayWeek;
   let month;
 

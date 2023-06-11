@@ -1,46 +1,45 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import { WeatherProvider } from './context/WeatherContext';
-import { ThemeProvider } from './context/ThemeContext';
+import { useState, useEffect, useRef, Fragment } from 'react';
 import { useTheme } from './context/ThemeContext';
-
+import { useError } from './context/ErrorContext';
 import defineHeightMobileDisplay from './helpers/defineHeightMobileDisplay';
 import LoadingScreen from './components/LoadingScreen';
-import ModalScreen from './components/ModalScreen';
 import Main from './components/Main';
+import { CSSTransition } from 'react-transition-group';
+import Modal from './components/UI/Modal';
+import BackgroundBlur from './components/UI/BackgroundBlur';
 
 //Доробити час точний, щоб не було перебою в годинах
 function App() {
+  const nodeRef = useRef(null);
+  const errorData = useError();
   const [firstEnter, setFirstEnter] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
   const [isLoaded, setIsLoaded] = useState(false);
   const { theme } = useTheme();
   const [curTheme, setCurTheme] = useState(theme);
-
   //fix height on mobile
   useEffect(() => {
     defineHeightMobileDisplay();
   }, []);
-
   return (
-    <WeatherProvider>
-      <ThemeProvider>
-        <div className={`app ${curTheme === 'dark' ? 'dark' : 'light'}`}>
-          {isError && <ModalScreen errorMessage={errorMessage} setIsError={setIsError} />}
-          {isLoaded && <LoadingScreen />}
-          <Main
-            firstEnter={firstEnter}
-            setIsError={setIsError}
-            setErrorMessage={setErrorMessage}
-            setIsLoaded={setIsLoaded}
-            setFirstEnter={setFirstEnter}
-            isError={isError}
-            setCurTheme={setCurTheme}
-          />
-        </div>
-      </ThemeProvider>
-    </WeatherProvider>
+    <div className={`app ${curTheme === 'dark' ? 'dark' : 'light'}`}>
+      <CSSTransition
+        nodeRef={nodeRef}
+        in={errorData.isError}
+        classNames={'modal'}
+        timeout={500}
+        unmountOnExit>
+        <Modal nodeRef={nodeRef} />
+      </CSSTransition>
+      {errorData.isError && <BackgroundBlur />}
+      {isLoaded && <LoadingScreen />}
+      <Main
+        firstEnter={firstEnter}
+        setIsLoaded={setIsLoaded}
+        setFirstEnter={setFirstEnter}
+        setCurTheme={setCurTheme}
+      />
+    </div>
   );
 }
 

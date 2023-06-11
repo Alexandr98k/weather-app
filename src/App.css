@@ -53,3 +53,36 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+/* Modal animation */
+
+/* .modal-appear {
+  opacity: 0;
+}
+.modal-appear-active {
+  opacity: 1;
+  transform: scale(0.9);
+  transition: opacity 1000ms;
+} */
+.modal-enter {
+  opacity: 0;
+}
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(0.9);
+  transition: opacity 500ms;
+}
+.modal-enter-done {
+  opacity: 1;
+}
+.modal-exit {
+  opacity: 1;
+}
+.modal-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 500ms;
+}
+.modal-exit-done {
+  opacity: 0;
+}

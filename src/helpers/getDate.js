@@ -12,7 +12,6 @@ const getDate = function (timeZoneOffset) {
     hour: +londonTime[0] - 1,
   };
   const { year, month, date, hour } = object;
-
   const londonDateTimeObject = new Date(year, month, date, hour);
 
   const timeZoneTime = new Date(londonDateTimeObject.getTime() + timeZoneOffset * 1000);
